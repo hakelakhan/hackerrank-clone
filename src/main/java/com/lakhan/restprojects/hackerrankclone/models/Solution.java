@@ -1,5 +1,6 @@
 package com.lakhan.restprojects.hackerrankclone.models;
 
+import com.lakhan.restprojects.hackerrankclone.dtos.HackerRankApiResponseDto;
 import com.lakhan.restprojects.hackerrankclone.enums.ProgrammingLanguageUsed;
 import lombok.Data;
 
@@ -23,5 +24,5 @@ public class Solution {
     private boolean status;//Solved, Partially Solved, Not Attempted yet
     private User solutionPostedBy;
     private int pointsReceivedForSolution;
-    List<TestcaseExecutionDetails> testcaseExecutionDetails;
+    private HackerRankApiResponseDto hackerRankApiResponseDto;
 }
