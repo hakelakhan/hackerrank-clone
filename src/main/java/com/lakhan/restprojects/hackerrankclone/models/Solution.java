@@ -1,6 +1,5 @@
 package com.lakhan.restprojects.hackerrankclone.models;
 
-import com.lakhan.restprojects.hackerrankclone.dtos.HackerRankApiResponseDto;
 import com.lakhan.restprojects.hackerrankclone.enums.ProgrammingLanguageUsed;
 import lombok.Data;
 
@@ -8,7 +7,6 @@ import javax.persistence.Entity;
 import javax.persistence.GeneratedValue;
 import javax.persistence.Id;
 import javax.persistence.ManyToOne;
-import java.util.List;
 
 @Data
 @Entity
@@ -22,7 +20,7 @@ public class Solution {
     ProgrammingLanguageUsed programmingLanguageUsed;
     private boolean compiled;
     private boolean status;//Solved, Partially Solved, Not Attempted yet
-    private User solutionPostedBy;
+//    private User solutionPostedBy;
     private int pointsReceivedForSolution;
-    private HackerRankApiResponseDto hackerRankApiResponseDto;
+ //   private CodeEvaluationJdoodleApiResponseDto codeEvaluationJdoodleApiResponseDto;
 }
