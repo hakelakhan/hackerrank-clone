@@ -3,12 +3,13 @@ package com.lakhan.restprojects.hackerrankclone.models;
 import com.lakhan.restprojects.hackerrankclone.enums.RegistrationStatus;
 import lombok.Data;
 
-import javax.persistence.*;
+import javax.persistence.Entity;
+import javax.persistence.GeneratedValue;
+import javax.persistence.Id;
 import javax.validation.constraints.Email;
 import javax.validation.constraints.NotEmpty;
 import javax.validation.constraints.Size;
 import java.time.LocalDateTime;
-import java.util.List;
 
 @Data
 @Entity
@@ -21,7 +22,7 @@ class User {
     private String username;
 
     @Email
-    private String emailId;
+    private String email;
 
     @NotEmpty @Size(min = 8, message = "Password must be at least 8 characters long")
     private String password;
@@ -32,4 +33,11 @@ class User {
     private RegistrationStatus registrationStatus;
     private LocalDateTime createdTime;
     private LocalDateTime lastLoggedInTime;
+
+    public User() {
+        registrationStatus = RegistrationStatus.NOT_YET_ACTIVATED;
+        createdTime = LocalDateTime.now();
+        lastLoggedInTime = createdTime;
+        currentScore = 0;
+    }
 }

@@ -1,0 +1,38 @@
+package com.lakhan.restprojects.hackerrankclone.models;
+
+import lombok.*;
+
+import javax.persistence.*;
+import java.time.Instant;
+import java.util.UUID;
+
+import static javax.persistence.FetchType.LAZY;
+import static javax.persistence.GenerationType.IDENTITY;
+
+
+@Builder
+@Entity
+@Data
+@Table(name="verification_token")
+@NoArgsConstructor
+@AllArgsConstructor
+public class VerificationToken {
+
+    @Id
+    @GeneratedValue(strategy = IDENTITY)
+    private Long id;
+
+    @Getter
+    private String token;
+
+    @OneToOne(fetch = LAZY)
+    @Getter
+    private User user;
+
+    private Instant validTill;
+
+    public static VerificationToken createVerificationTokenForUser(User user) {
+        return VerificationToken.builder().
+                token(UUID.randomUUID().toString()).user(user).validTill(Instant.now().plusSeconds(60 * 20)).build();
+    }
+}

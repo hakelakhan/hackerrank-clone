@@ -6,7 +6,7 @@ import lombok.Data;
 @Builder
 @Data
 
-public class CodeEvaluationRequestDto {
+public class CodeEvaluationRequest {
     private String lang;
     private String source;
     private String input;

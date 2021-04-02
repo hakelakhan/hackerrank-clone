@@ -1,6 +1,6 @@
 package com.lakhan.restprojects.hackerrankclone.controllers;
 
-import com.lakhan.restprojects.hackerrankclone.dtos.CodeEvaluationRequestDto;
+import com.lakhan.restprojects.hackerrankclone.dtos.CodeEvaluationRequest;
 import com.lakhan.restprojects.hackerrankclone.services.ProblemSubmissionHandlingService;
 import lombok.extern.slf4j.Slf4j;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -16,7 +16,7 @@ public class ProblemSubmissionController {
     ProblemSubmissionHandlingService submissionHandlingService;
 
     @PostMapping("/problem/submit")
-    public void submitCode(@RequestBody CodeEvaluationRequestDto requestDto) {
+    public void submitCode(@RequestBody CodeEvaluationRequest requestDto) {
         log.info("Submitting code ");
         submissionHandlingService.submitCodeForEvaluation(requestDto);
     }
