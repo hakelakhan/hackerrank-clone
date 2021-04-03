@@ -1,5 +1,6 @@
 package com.lakhan.restprojects.hackerrankclone.controllers;
 
+import com.lakhan.restprojects.hackerrankclone.dtos.AuthenticationResponse;
 import com.lakhan.restprojects.hackerrankclone.dtos.LoginRequest;
 import com.lakhan.restprojects.hackerrankclone.dtos.RegisterRequest;
 import com.lakhan.restprojects.hackerrankclone.services.AuthService;
@@ -27,9 +28,9 @@ class AuthController {
     }
 
     @PostMapping("/login")
-    public ResponseEntity<String> login(LoginRequest loginRequest) {
-        authService.login(loginRequest);
-        return new ResponseEntity<>("Login Successful", OK);
+    public AuthenticationResponse login(@RequestBody LoginRequest loginRequest) {
+        log.info("LoginRequest for user " + loginRequest.getUsername());
+        return authService.login(loginRequest);
     }
 
     @GetMapping("/account-verification/{verificationToken}")

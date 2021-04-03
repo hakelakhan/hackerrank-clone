@@ -23,10 +23,10 @@ public class UserDetailsServiceImpl implements UserDetailsService {
 
     @Override
     @Transactional
-    public UserDetails loadUserByUsername(String username) throws UsernameNotFoundException {
+    public UserDetails loadUserByUsername(String username) {
         Optional<User> userOptional = usersDao.findByUsername(username);
         User user = userOptional.orElseThrow(() -> new UsernameNotFoundException("No user found with username " + username));
-        return new org.springframework.security.core.userdetails.User(user.getUsername(), user.getUsername(), user.getRegistrationStatus().equals(RegistrationStatus.ACTIVATED), true, true, true, getAuthorities("USER"));
+        return new org.springframework.security.core.userdetails.User(user.getUsername(), user.getPassword(), user.getRegistrationStatus().equals(RegistrationStatus.ACTIVATED), true, true, true, getAuthorities("USER"));
     }
 
     private Collection<? extends GrantedAuthority> getAuthorities(String role) {

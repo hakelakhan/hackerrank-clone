@@ -2,12 +2,14 @@ package com.lakhan.restprojects.hackerrankclone.services;
 
 import com.lakhan.restprojects.hackerrankclone.daos.UsersRepository;
 import com.lakhan.restprojects.hackerrankclone.daos.VerificationTokenRepository;
+import com.lakhan.restprojects.hackerrankclone.dtos.AuthenticationResponse;
 import com.lakhan.restprojects.hackerrankclone.dtos.LoginRequest;
 import com.lakhan.restprojects.hackerrankclone.dtos.RegisterRequest;
 import com.lakhan.restprojects.hackerrankclone.enums.RegistrationStatus;
 import com.lakhan.restprojects.hackerrankclone.models.NotificationEmail;
 import com.lakhan.restprojects.hackerrankclone.models.User;
 import com.lakhan.restprojects.hackerrankclone.models.VerificationToken;
+import com.lakhan.restprojects.hackerrankclone.security.JwtProvider;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.security.authentication.AuthenticationManager;
 import org.springframework.security.authentication.UsernamePasswordAuthenticationToken;
@@ -18,6 +20,7 @@ import org.springframework.stereotype.Service;
 
 import javax.transaction.Transactional;
 import javax.validation.Valid;
+import java.time.Instant;
 import java.util.Optional;
 
 @Service
@@ -29,6 +32,9 @@ public class AuthService {
 
     @Autowired
     private UsersRepository usersDao;
+
+    @Autowired
+    JwtProvider jwtProvider;
 
     @Autowired
     private VerificationTokenRepository verificationTokenRepository;
@@ -65,11 +71,15 @@ public class AuthService {
         return verificationToken.getToken();
     }
 
-    public String login(LoginRequest user) {
+    public AuthenticationResponse login(LoginRequest user) {
         Authentication authenticate = authenticationManager.authenticate(new UsernamePasswordAuthenticationToken(user.getUsername(), user.getPassword()));
         SecurityContextHolder.getContext().setAuthentication(authenticate);
-        String jwtToken = "jwtToken";
-        return jwtToken;
+        String jwtToken = jwtProvider.generateToken(authenticate);
+        return AuthenticationResponse.builder()
+                .authenticationToken(jwtToken)
+                .expiresAt(Instant.now().plusSeconds(10))
+                .username(user.getUsername())
+                .build();
     }
 
     public void verifyAccount(String token) {
