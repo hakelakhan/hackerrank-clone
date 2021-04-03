@@ -32,7 +32,7 @@ class AuthController {
         return new ResponseEntity<>("Login Successful", OK);
     }
 
-    @GetMapping("/accountVerification/{verificationToken}")
+    @GetMapping("/account-verification/{verificationToken}")
     public ResponseEntity<String> verifyAccount (@PathVariable("verificationToken") String verificationToken) {
         log.info("Validating token {} ", verificationToken);
         authService.verifyAccount(verificationToken);

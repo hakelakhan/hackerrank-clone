@@ -37,7 +37,6 @@ public class AuthService {
         user.setUsername(registerRequest.getUsername());
         user.setEmail(registerRequest.getEmail());
         user.setPassword(passwordEncoder.encode(registerRequest.getPassword()));
-//        user.setPassword(registerRequest.getPassword());
 
         usersDao.save(user);
 
@@ -47,7 +46,7 @@ public class AuthService {
                         .subject("Please Activate your HackerRank Clone Account")
                         .body("Thank you for signing up to HackerRank Clone, " +
                                 "please click on the below url to activate your account : " +
-                                "http://localhost:8080/api/auth/accountVerification/" + token)
+                                "http://localhost:8080/api/auth/account-verification/" + token)
                         .recepient(user.getEmail())
                         .build());
     }

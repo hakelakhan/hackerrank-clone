@@ -22,11 +22,9 @@ public class VerificationToken {
     @GeneratedValue(strategy = IDENTITY)
     private Long id;
 
-    @Getter
     private String token;
 
     @OneToOne(fetch = LAZY)
-    @Getter
     private User user;
 
     private Instant validTill;
