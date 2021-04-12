@@ -24,12 +24,12 @@ class AuthController {
     @PostMapping(value="/register")
     public ResponseEntity<String> register(@Valid @RequestBody RegisterRequest registerRequest) {
         authService.register(registerRequest);
-        return new ResponseEntity<>("User Registration Successful", OK);
+        return new ResponseEntity<>("{\"message\": \"User Registration Successful\"}", OK);
     }
 
     @PostMapping("/login")
     public AuthenticationResponse login(@RequestBody LoginRequest loginRequest) {
-        log.info("LoginRequest for user " + loginRequest.getUsername());
+        log.info("Login Request for user " + loginRequest.getEmail());
         return authService.login(loginRequest);
     }
 

@@ -47,7 +47,7 @@ public class AuthService {
 
     public void register(@Valid RegisterRequest registerRequest) {
         User user = new User();
-        user.setUsername(registerRequest.getUsername());
+        user.setFullName(registerRequest.getFullName());
         user.setEmail(registerRequest.getEmail());
         user.setPassword(passwordEncoder.encode(registerRequest.getPassword()));
 
@@ -72,13 +72,13 @@ public class AuthService {
     }
 
     public AuthenticationResponse login(LoginRequest user) {
-        Authentication authenticate = authenticationManager.authenticate(new UsernamePasswordAuthenticationToken(user.getUsername(), user.getPassword()));
+        Authentication authenticate = authenticationManager.authenticate(new UsernamePasswordAuthenticationToken(user.getEmail(), user.getPassword()));
         SecurityContextHolder.getContext().setAuthentication(authenticate);
         String jwtToken = jwtProvider.generateToken(authenticate);
         return AuthenticationResponse.builder()
                 .authenticationToken(jwtToken)
                 .expiresAt(Instant.now().plusSeconds(10))
-                .username(user.getUsername())
+                .username(user.getEmail())
                 .build();
     }
 

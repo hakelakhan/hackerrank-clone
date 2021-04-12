@@ -3,6 +3,7 @@ package com.lakhan.restprojects.hackerrankclone.models;
 import com.lakhan.restprojects.hackerrankclone.enums.RegistrationStatus;
 import lombok.Data;
 
+import javax.persistence.Column;
 import javax.persistence.Entity;
 import javax.persistence.GeneratedValue;
 import javax.persistence.Id;
@@ -19,9 +20,10 @@ class User {
     private long userId;
 
     @NotEmpty
-    private String username;
+    private String fullName;
 
-    @Email
+    @Email(message = "Email Id must be valid")
+    @Column(name="email", unique = true)
     private String email;
 
     @NotEmpty @Size(min = 8, message = "Password must be at least 8 characters long")

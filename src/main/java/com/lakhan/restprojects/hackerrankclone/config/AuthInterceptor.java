@@ -11,7 +11,6 @@ public class AuthInterceptor  implements RequestInterceptor {
 
     @Override
     public void apply(RequestTemplate requestTemplate) {
-//        requestTemplate.header("client-secret", "2db5ec874352fe5486dcb34ce99e89c4778438a4");
           requestTemplate.header("client-secret", clientSecret);
     }
 }
