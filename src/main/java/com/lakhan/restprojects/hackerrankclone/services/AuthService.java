@@ -50,14 +50,15 @@ public class AuthService {
         user.setFullName(registerRequest.getFullName());
         user.setEmail(registerRequest.getEmail());
         user.setPassword(passwordEncoder.encode(registerRequest.getPassword()));
-
+        //Temp Testing
+        user.setRegistrationStatus(RegistrationStatus.ACTIVATED);
         usersDao.save(user);
 
         String verificationToken = generateVerificationToken(user);
         emailService.sendMail(
                 NotificationEmail.builder()
-                        .subject("Please Activate your HackerRank Clone Account")
-                        .body("Thank you for signing up to HackerRank Clone, " +
+                        .subject("Please Activate your Codie Account")
+                        .body("Thank you for signing up to Codie, " +
                                 "please click on the below url to activate your account : " +
                                 "http://localhost:8080/api/auth/account-verification/" + verificationToken)
                         .recepient(user.getEmail())

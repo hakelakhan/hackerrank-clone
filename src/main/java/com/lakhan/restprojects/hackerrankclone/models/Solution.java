@@ -15,7 +15,7 @@ public class Solution {
     long id;
 
     @ManyToOne
-    Problem problem;
+    CodingQuestion codingQuestion;
     String codeWrittenByUser;
     ProgrammingLanguageUsed programmingLanguageUsed;
     private boolean compiled;

@@ -28,7 +28,7 @@ public class EmailService {
         };
 
         try {
-            mailSender.send(mimeMessagePreparator);
+            //mailSender.send(mimeMessagePreparator);
             log.info("Activation email sent");
         }
         catch (MailException ex) {
