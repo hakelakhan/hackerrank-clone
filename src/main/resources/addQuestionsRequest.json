@@ -1,0 +1,714 @@
+[
+  {
+    "title": "Hello World",
+    "associatedTopics": [{"shortTopicName" : "Basic Programming"}],
+    "description": "Write a program to print Hello World",
+    "maxScore": 10,
+    "difficultyLevel": "EASY",
+    "executionTimeLimitPerTestcase": 10000
+  },
+  {
+    "title": "Take Input from User",
+    "associatedTopics": [{"shortTopicName" : "Basic Programming"}],
+    "description": "Write a program to Take Input from User",
+    "maxScore": 10,
+    "difficultyLevel": "EASY",
+    "executionTimeLimitPerTestcase": 10000
+  },
+  {
+    "title": "Find ASCII Value of Character",
+    "associatedTopics": [{"shortTopicName" : "Basic Programming"}],
+    "description": "Write a program to Find ASCII Value of Character",
+    "maxScore": 10,
+    "difficultyLevel": "EASY",
+    "executionTimeLimitPerTestcase": 10000
+  },
+  {
+    "title": "Using gets() function",
+    "associatedTopics": [{"shortTopicName" : "Basic Programming"}],
+    "description": "Write a program to Using gets() function",
+    "maxScore": 10,
+    "difficultyLevel": "EASY",
+    "executionTimeLimitPerTestcase": 10000
+  },
+  {
+    "title": "If-Else",
+    "associatedTopics": [{"shortTopicName" : "Basic Programming"}],
+    "description": "Write a program to If-Else",
+    "maxScore": 10,
+    "difficultyLevel": "EASY",
+    "executionTimeLimitPerTestcase": 10000
+  },
+  {
+    "title": "Switch Case",
+    "associatedTopics": [{"shortTopicName" : "Basic Programming"}],
+    "description": "Write a program to Switch Case",
+    "maxScore": 10,
+    "difficultyLevel": "EASY",
+    "executionTimeLimitPerTestcase": 10000
+  },
+  {
+    "title": "Checking for Vowel",
+    "associatedTopics": [{"shortTopicName" : "Basic Programming"}],
+    "description": "Write a program to Checking for Vowel",
+    "maxScore": 10,
+    "difficultyLevel": "EASY",
+    "executionTimeLimitPerTestcase": 10000
+  },
+  {
+    "title": "Reversing Case of Character",
+    "associatedTopics": [{"shortTopicName" : "Basic Programming"}],
+    "description": "Write a program to Reversing Case of Character",
+    "maxScore": 10,
+    "difficultyLevel": "EASY",
+    "executionTimeLimitPerTestcase": 10000
+  },
+  {
+    "title": "Swapping Two Numbers",
+    "associatedTopics": [{"shortTopicName" : "Basic Programming"}],
+    "description": "Write a program to Swapping Two Numbers",
+    "maxScore": 10,
+    "difficultyLevel": "EASY",
+    "executionTimeLimitPerTestcase": 10000
+  },
+  {
+    "title": "Largest and Smallest using Global Declaration",
+    "associatedTopics": [{"shortTopicName" : "Basic Programming"}],
+    "description": "Write a program to Largest and Smallest using Global Declaration",
+    "maxScore": 10,
+    "difficultyLevel": "EASY",
+    "executionTimeLimitPerTestcase": 10000
+  },
+  {
+    "title": "Basic for Loop",
+    "associatedTopics": [{"shortTopicName" : "Loops"}],
+    "description": "Write a program to Basic for Loop",
+    "maxScore": 10,
+    "difficultyLevel": "EASY",
+    "executionTimeLimitPerTestcase": 10000
+  },
+  {
+    "title": "Basic while Loop",
+    "associatedTopics": [{"shortTopicName" : "Loops"}],
+    "description": "Write a program to Basic while Loop",
+    "maxScore": 10,
+    "difficultyLevel": "EASY",
+    "executionTimeLimitPerTestcase": 10000
+  },
+  {
+    "title": "Basic do-while Loop",
+    "associatedTopics": [{"shortTopicName" : "Loops"}],
+    "description": "Write a program to Basic do-while Loop",
+    "maxScore": 10,
+    "difficultyLevel": "EASY",
+    "executionTimeLimitPerTestcase": 10000
+  },
+  {
+    "title": "Nested for Loops",
+    "associatedTopics": [{"shortTopicName" : "Loops"}],
+    "description": "Write a program to Nested for Loops",
+    "maxScore": 10,
+    "difficultyLevel": "EASY",
+    "executionTimeLimitPerTestcase": 10000
+  },
+  {
+    "title": "Program to find Factorial of number",
+    "associatedTopics": [{"shortTopicName" : "Loops"}],
+    "description": "Write a program to Program to find Factorial of number",
+    "maxScore": 10,
+    "difficultyLevel": "EASY",
+    "executionTimeLimitPerTestcase": 10000
+  },
+  {
+    "title": "Fibonacci Series Program",
+    "associatedTopics": [{"shortTopicName" : "Loops"}],
+    "description": "Write a program to Fibonacci Series Program",
+    "maxScore": 10,
+    "difficultyLevel": "EASY",
+    "executionTimeLimitPerTestcase": 10000
+  },
+  {
+    "title": "Palindrome Program",
+    "associatedTopics": [{"shortTopicName" : "Loops"}],
+    "description": "Write a program to Palindrome Program",
+    "maxScore": 10,
+    "difficultyLevel": "EASY",
+    "executionTimeLimitPerTestcase": 10000
+  },
+  {
+    "title": "Program to find Sum of Digits",
+    "associatedTopics": [{"shortTopicName" : "Loops"}],
+    "description": "Write a program to Program to find Sum of Digits",
+    "maxScore": 10,
+    "difficultyLevel": "EASY",
+    "executionTimeLimitPerTestcase": 10000
+  },
+  {
+    "title": "Program to reverse a String",
+    "associatedTopics": [{"shortTopicName" : "Loops"}],
+    "description": "Write a program to Program to reverse a String",
+    "maxScore": 10,
+    "difficultyLevel": "EASY",
+    "executionTimeLimitPerTestcase": 10000
+  },
+  {
+    "title": "Program to find Average of n Numbers",
+    "associatedTopics": [{"shortTopicName" : "Number Crunching"}],
+    "description": "Write a program to Program to find Average of n Numbers",
+    "maxScore": 10,
+    "difficultyLevel": "EASY",
+    "executionTimeLimitPerTestcase": 10000
+  },
+  {
+    "title": "Armstrong Number",
+    "associatedTopics": [{"shortTopicName" : "Number Crunching"}],
+    "description": "Write a program to Armstrong Number",
+    "maxScore": 10,
+    "difficultyLevel": "EASY",
+    "executionTimeLimitPerTestcase": 10000
+  },
+  {
+    "title": "Checking input number for Odd or Even",
+    "associatedTopics": [{"shortTopicName" : "Number Crunching"}],
+    "description": "Write a program to Checking input number for Odd or Even",
+    "maxScore": 10,
+    "difficultyLevel": "EASY",
+    "executionTimeLimitPerTestcase": 10000
+  },
+  {
+    "title": "Print Factors of a Number",
+    "associatedTopics": [{"shortTopicName" : "Number Crunching"}],
+    "description": "Write a program to Print Factors of a Number",
+    "maxScore": 10,
+    "difficultyLevel": "EASY",
+    "executionTimeLimitPerTestcase": 10000
+  },
+  {
+    "title": "Find sum of n Numbers",
+    "associatedTopics": [{"shortTopicName" : "Number Crunching"}],
+    "description": "Write a program to Find sum of n Numbers",
+    "maxScore": 10,
+    "difficultyLevel": "EASY",
+    "executionTimeLimitPerTestcase": 10000
+  },
+  {
+    "title": "Print first n Prime Numbers",
+    "associatedTopics": [{"shortTopicName" : "Number Crunching"}],
+    "description": "Write a program to Print first n Prime Numbers",
+    "maxScore": 10,
+    "difficultyLevel": "EASY",
+    "executionTimeLimitPerTestcase": 10000
+  },
+  {
+    "title": "Find Largest among n Numbers",
+    "associatedTopics": [{"shortTopicName" : "Number Crunching"}],
+    "description": "Write a program to Find Largest among n Numbers",
+    "maxScore": 10,
+    "difficultyLevel": "EASY",
+    "executionTimeLimitPerTestcase": 10000
+  },
+  {
+    "title": "Exponential without pow()",
+    "associatedTopics": [{"shortTopicName" : "Number Crunching"}],
+    "description": "Write a program to Exponential without pow()",
+    "maxScore": 10,
+    "difficultyLevel": "EASY",
+    "executionTimeLimitPerTestcase": 10000
+  },
+  {
+    "title": "Find whether number is int or float",
+    "associatedTopics": [{"shortTopicName" : "Number Crunching"}],
+    "description": "Write a program to Find whether number is int or float",
+    "maxScore": 10,
+    "difficultyLevel": "EASY",
+    "executionTimeLimitPerTestcase": 10000
+  },
+  {
+    "title": "Print Multiplication Table of input Number",
+    "associatedTopics": [{"shortTopicName" : "Number Crunching"}],
+    "description": "Write a program to Print Multiplication Table of input Number",
+    "maxScore": 10,
+    "difficultyLevel": "EASY",
+    "executionTimeLimitPerTestcase": 10000
+  },
+  {
+    "title": "Reverse an Array",
+    "associatedTopics": [{"shortTopicName" : "Arrays"}],
+    "description": "Write a program to Reverse an Array",
+    "maxScore": 10,
+    "difficultyLevel": "EASY",
+    "executionTimeLimitPerTestcase": 10000
+  },
+  {
+    "title": "Insert Element to Array",
+    "associatedTopics": [{"shortTopicName" : "Arrays"}],
+    "description": "Write a program to Insert Element to Array",
+    "maxScore": 10,
+    "difficultyLevel": "EASY",
+    "executionTimeLimitPerTestcase": 10000
+  },
+  {
+    "title": "Delete Element from Array",
+    "associatedTopics": [{"shortTopicName" : "Arrays"}],
+    "description": "Write a program to Delete Element from Array",
+    "maxScore": 10,
+    "difficultyLevel": "EASY",
+    "executionTimeLimitPerTestcase": 10000
+  },
+  {
+    "title": "Largest and Smallest Element in Array",
+    "associatedTopics": [{"shortTopicName" : "Arrays"}],
+    "description": "Write a program to Largest and Smallest Element in Array",
+    "maxScore": 10,
+    "difficultyLevel": "EASY",
+    "executionTimeLimitPerTestcase": 10000
+  },
+  {
+    "title": "Sum of N Numbers using Arrays",
+    "associatedTopics": [{"shortTopicName" : "Arrays"}],
+    "description": "Write a program to Sum of N Numbers using Arrays",
+    "maxScore": 10,
+    "difficultyLevel": "EASY",
+    "executionTimeLimitPerTestcase": 10000
+  },
+  {
+    "title": "Sort Array Elements",
+    "associatedTopics": [{"shortTopicName" : "Arrays"}],
+    "description": "Write a program to Sort Array Elements",
+    "maxScore": 10,
+    "difficultyLevel": "EASY",
+    "executionTimeLimitPerTestcase": 10000
+  },
+  {
+    "title": "Remove Duplicate Elements",
+    "associatedTopics": [{"shortTopicName" : "Arrays"}],
+    "description": "Write a program to Remove Duplicate Elements",
+    "maxScore": 10,
+    "difficultyLevel": "EASY",
+    "executionTimeLimitPerTestcase": 10000
+  },
+  {
+    "title": "Sparse Matrix",
+    "associatedTopics": [{"shortTopicName" : "Arrays"}],
+    "description": "Write a program to Sparse Matrix",
+    "maxScore": 10,
+    "difficultyLevel": "EASY",
+    "executionTimeLimitPerTestcase": 10000
+  },
+  {
+    "title": "Square Matrix",
+    "associatedTopics": [{"shortTopicName" : "Arrays"}],
+    "description": "Write a program to Square Matrix",
+    "maxScore": 10,
+    "difficultyLevel": "EASY",
+    "executionTimeLimitPerTestcase": 10000
+  },
+  {
+    "title": "Determinant of 2x2 matrix",
+    "associatedTopics": [{"shortTopicName" : "Arrays"}],
+    "description": "Write a program to Determinant of 2x2 matrix",
+    "maxScore": 10,
+    "difficultyLevel": "EASY",
+    "executionTimeLimitPerTestcase": 10000
+  },
+  {
+    "title": "Normal and Trace of Square Matrix",
+    "associatedTopics": [{"shortTopicName" : "Arrays"}],
+    "description": "Write a program to Normal and Trace of Square Matrix",
+    "maxScore": 10,
+    "difficultyLevel": "EASY",
+    "executionTimeLimitPerTestcase": 10000
+  },
+  {
+    "title": "Addition and Subtraction of Matrices",
+    "associatedTopics": [{"shortTopicName" : "Arrays"}],
+    "description": "Write a program to Addition and Subtraction of Matrices",
+    "maxScore": 10,
+    "difficultyLevel": "EASY",
+    "executionTimeLimitPerTestcase": 10000
+  },
+  {
+    "title": "Matrix Mulitplication",
+    "associatedTopics": [{"shortTopicName" : "Arrays"}],
+    "description": "Write a program to Matrix Mulitplication",
+    "maxScore": 10,
+    "difficultyLevel": "EASY",
+    "executionTimeLimitPerTestcase": 10000
+  },
+  {
+    "title": "Simple Program",
+    "associatedTopics": [{"shortTopicName" : "Pointers"}],
+    "description": "Write a program to Simple Program",
+    "maxScore": 10,
+    "difficultyLevel": "EASY",
+    "executionTimeLimitPerTestcase": 10000
+  },
+  {
+    "title": "Memory Management",
+    "associatedTopics": [{"shortTopicName" : "Pointers"}],
+    "description": "Write a program to Memory Management",
+    "maxScore": 10,
+    "difficultyLevel": "EASY",
+    "executionTimeLimitPerTestcase": 10000
+  },
+  {
+    "title": "Array of Pointers",
+    "associatedTopics": [{"shortTopicName" : "Pointers"}],
+    "description": "Write a program to Array of Pointers",
+    "maxScore": 10,
+    "difficultyLevel": "EASY",
+    "executionTimeLimitPerTestcase": 10000
+  },
+  {
+    "title": "Pointer Increment and Decrement",
+    "associatedTopics": [{"shortTopicName" : "Pointers"}],
+    "description": "Write a program to Pointer Increment and Decrement",
+    "maxScore": 10,
+    "difficultyLevel": "EASY",
+    "executionTimeLimitPerTestcase": 10000
+  },
+  {
+    "title": "Pointer Comparison",
+    "associatedTopics": [{"shortTopicName" : "Pointers"}],
+    "description": "Write a program to Pointer Comparison",
+    "maxScore": 10,
+    "difficultyLevel": "EASY",
+    "executionTimeLimitPerTestcase": 10000
+  },
+  {
+    "title": "Pointer to a Pointer",
+    "associatedTopics": [{"shortTopicName" : "Pointers"}],
+    "description": "Write a program to Pointer to a Pointer",
+    "maxScore": 10,
+    "difficultyLevel": "EASY",
+    "executionTimeLimitPerTestcase": 10000
+  },
+  {
+    "title": "Concatenate Strings using Pointer",
+    "associatedTopics": [{"shortTopicName" : "Pointers"}],
+    "description": "Write a program to Concatenate Strings using Pointer",
+    "maxScore": 10,
+    "difficultyLevel": "EASY",
+    "executionTimeLimitPerTestcase": 10000
+  },
+  {
+    "title": "Reverse a String using Pointer",
+    "associatedTopics": [{"shortTopicName" : "Pointers"}],
+    "description": "Write a program to Reverse a String using Pointer",
+    "maxScore": 10,
+    "difficultyLevel": "EASY",
+    "executionTimeLimitPerTestcase": 10000
+  },
+  {
+    "title": "Swapping Two Numbers",
+    "associatedTopics": [{"shortTopicName" : "Pointers"}],
+    "description": "Write a program to Swapping Two Numbers",
+    "maxScore": 10,
+    "difficultyLevel": "EASY",
+    "executionTimeLimitPerTestcase": 10000
+  },
+  {
+    "title": "Pointer to a Function",
+    "associatedTopics": [{"shortTopicName" : "Pointers"}],
+    "description": "Write a program to Pointer to a Function",
+    "maxScore": 10,
+    "difficultyLevel": "EASY",
+    "executionTimeLimitPerTestcase": 10000
+  },
+  {
+    "title": "Null Pointer",
+    "associatedTopics": [{"shortTopicName" : "Pointers"}],
+    "description": "Write a program to Null Pointer",
+    "maxScore": 10,
+    "difficultyLevel": "EASY",
+    "executionTimeLimitPerTestcase": 10000
+  },
+  {
+    "title": "Adding Two Numbers",
+    "associatedTopics": [{"shortTopicName" : "Recursion"}],
+    "description": "Write a program to Adding Two Numbers",
+    "maxScore": 10,
+    "difficultyLevel": "EASY",
+    "executionTimeLimitPerTestcase": 10000
+  },
+  {
+    "title": "Factorial",
+    "associatedTopics": [{"shortTopicName" : "Recursion"}],
+    "description": "Write a program to Factorial",
+    "maxScore": 10,
+    "difficultyLevel": "EASY",
+    "executionTimeLimitPerTestcase": 10000
+  },
+  {
+    "title": "Fibonacci Series",
+    "associatedTopics": [{"shortTopicName" : "Recursion"}],
+    "description": "Write a program to Fibonacci Series",
+    "maxScore": 10,
+    "difficultyLevel": "EASY",
+    "executionTimeLimitPerTestcase": 10000
+  },
+  {
+    "title": "Sum of First N Numbers",
+    "associatedTopics": [{"shortTopicName" : "Recursion"}],
+    "description": "Write a program to Sum of First N Numbers",
+    "maxScore": 10,
+    "difficultyLevel": "EASY",
+    "executionTimeLimitPerTestcase": 10000
+  },
+  {
+    "title": "Sum of Digits",
+    "associatedTopics": [{"shortTopicName" : "Recursion"}],
+    "description": "Write a program to Sum of Digits",
+    "maxScore": 10,
+    "difficultyLevel": "EASY",
+    "executionTimeLimitPerTestcase": 10000
+  },
+  {
+    "title": "Palindrome",
+    "associatedTopics": [{"shortTopicName" : "Recursion"}],
+    "description": "Write a program to Palindrome",
+    "maxScore": 10,
+    "difficultyLevel": "EASY",
+    "executionTimeLimitPerTestcase": 10000
+  },
+  {
+    "title": "Power of N",
+    "associatedTopics": [{"shortTopicName" : "Recursion"}],
+    "description": "Write a program to Power of N",
+    "maxScore": 10,
+    "difficultyLevel": "EASY",
+    "executionTimeLimitPerTestcase": 10000
+  },
+  {
+    "title": "Largest Array Element",
+    "associatedTopics": [{"shortTopicName" : "Recursion"}],
+    "description": "Write a program to Largest Array Element",
+    "maxScore": 10,
+    "difficultyLevel": "EASY",
+    "executionTimeLimitPerTestcase": 10000
+  },
+  {
+    "title": "Prime or Composite",
+    "associatedTopics": [{"shortTopicName" : "Recursion"}],
+    "description": "Write a program to Prime or Composite",
+    "maxScore": 10,
+    "difficultyLevel": "EASY",
+    "executionTimeLimitPerTestcase": 10000
+  },
+  {
+    "title": "LCM of Two Numbers",
+    "associatedTopics": [{"shortTopicName" : "Recursion"}],
+    "description": "Write a program to LCM of Two Numbers",
+    "maxScore": 10,
+    "difficultyLevel": "EASY",
+    "executionTimeLimitPerTestcase": 10000
+  },
+  {
+    "title": "GCD of Two Numbers",
+    "associatedTopics": [{"shortTopicName" : "Recursion"}],
+    "description": "Write a program to GCD of Two Numbers",
+    "maxScore": 10,
+    "difficultyLevel": "EASY",
+    "executionTimeLimitPerTestcase": 10000
+  },
+  {
+    "title": "Reverse a String",
+    "associatedTopics": [{"shortTopicName" : "Recursion"}],
+    "description": "Write a program to Reverse a String",
+    "maxScore": 10,
+    "difficultyLevel": "EASY",
+    "executionTimeLimitPerTestcase": 10000
+  },
+  {
+    "title": "List Files in Directory",
+    "associatedTopics": [{"shortTopicName" : "Files and Streams"}],
+    "description": "Write a program to List Files in Directory",
+    "maxScore": 10,
+    "difficultyLevel": "EASY",
+    "executionTimeLimitPerTestcase": 10000
+  },
+  {
+    "title": "Size of File",
+    "associatedTopics": [{"shortTopicName" : "Files and Streams"}],
+    "description": "Write a program to Size of File",
+    "maxScore": 10,
+    "difficultyLevel": "EASY",
+    "executionTimeLimitPerTestcase": 10000
+  },
+  {
+    "title": "Write in File",
+    "associatedTopics": [{"shortTopicName" : "Files and Streams"}],
+    "description": "Write a program to Write in File",
+    "maxScore": 10,
+    "difficultyLevel": "EASY",
+    "executionTimeLimitPerTestcase": 10000
+  },
+  {
+    "title": "Reverse Content of File",
+    "associatedTopics": [{"shortTopicName" : "Files and Streams"}],
+    "description": "Write a program to Reverse Content of File",
+    "maxScore": 10,
+    "difficultyLevel": "EASY",
+    "executionTimeLimitPerTestcase": 10000
+  },
+  {
+    "title": "Copy File to Another File",
+    "associatedTopics": [{"shortTopicName" : "Files and Streams"}],
+    "description": "Write a program to Copy File to Another File",
+    "maxScore": 10,
+    "difficultyLevel": "EASY",
+    "executionTimeLimitPerTestcase": 10000
+  },
+  {
+    "title": "Leap Year",
+    "associatedTopics": [{"shortTopicName" : "MISCELLANEOUS-1"}],
+    "description": "Write a program to Leap Year",
+    "maxScore": 10,
+    "difficultyLevel": "EASY",
+    "executionTimeLimitPerTestcase": 10000
+  },
+  {
+    "title": "Largest of three numbers",
+    "associatedTopics": [{"shortTopicName" : "MISCELLANEOUS-1"}],
+    "description": "Write a program to Largest of three numbers",
+    "maxScore": 10,
+    "difficultyLevel": "EASY",
+    "executionTimeLimitPerTestcase": 10000
+  },
+  {
+    "title": "Second largest among three numbers",
+    "associatedTopics": [{"shortTopicName" : "MISCELLANEOUS-1"}],
+    "description": "Write a program to Second largest among three numbers",
+    "maxScore": 10,
+    "difficultyLevel": "EASY",
+    "executionTimeLimitPerTestcase": 10000
+  },
+  {
+    "title": "Adding two numbers using pointers",
+    "associatedTopics": [{"shortTopicName" : "MISCELLANEOUS-1"}],
+    "description": "Write a program to Adding two numbers using pointers",
+    "maxScore": 10,
+    "difficultyLevel": "EASY",
+    "executionTimeLimitPerTestcase": 10000
+  },
+  {
+    "title": "Area and Circumference of Circle",
+    "associatedTopics": [{"shortTopicName" : "MISCELLANEOUS-1"}],
+    "description": "Write a program to Area and Circumference of Circle",
+    "maxScore": 10,
+    "difficultyLevel": "EASY",
+    "executionTimeLimitPerTestcase": 10000
+  },
+  {
+    "title": "Area of Triangle",
+    "associatedTopics": [{"shortTopicName" : "MISCELLANEOUS-1"}],
+    "description": "Write a program to Area of Triangle",
+    "maxScore": 10,
+    "difficultyLevel": "EASY",
+    "executionTimeLimitPerTestcase": 10000
+  },
+  {
+    "title": "Basic Arithmetic Operations",
+    "associatedTopics": [{"shortTopicName" : "MISCELLANEOUS-1"}],
+    "description": "Write a program to Basic Arithmetic Operations",
+    "maxScore": 10,
+    "difficultyLevel": "EASY",
+    "executionTimeLimitPerTestcase": 10000
+  },
+  {
+    "title": "Conversion between Number System",
+    "associatedTopics": [{"shortTopicName" : "MISCELLANEOUS-1"}],
+    "description": "Write a program to Conversion between Number System",
+    "maxScore": 10,
+    "difficultyLevel": "EASY",
+    "executionTimeLimitPerTestcase": 10000
+  },
+  {
+    "title": "Celsius to Fahrenheit",
+    "associatedTopics": [{"shortTopicName" : "MISCELLANEOUS-1"}],
+    "description": "Write a program to Celsius to Fahrenheit",
+    "maxScore": 10,
+    "difficultyLevel": "EASY",
+    "executionTimeLimitPerTestcase": 10000
+  },
+  {
+    "title": "Simple Interest",
+    "associatedTopics": [{"shortTopicName" : "MISCELLANEOUS-1"}],
+    "description": "Write a program to Simple Interest",
+    "maxScore": 10,
+    "difficultyLevel": "EASY",
+    "executionTimeLimitPerTestcase": 10000
+  },
+  {
+    "title": "Greatest Common Divisor(GCD)",
+    "associatedTopics": [{"shortTopicName" : "MISCELLANEOUS-1"}],
+    "description": "Write a program to Greatest Common Divisor(GCD)",
+    "maxScore": 10,
+    "difficultyLevel": "EASY",
+    "executionTimeLimitPerTestcase": 10000
+  },
+  {
+    "title": "Roots of Quadratic Roots",
+    "associatedTopics": [{"shortTopicName" : "MISCELLANEOUS-2"}],
+    "description": "Write a program to Roots of Quadratic Roots",
+    "maxScore": 10,
+    "difficultyLevel": "EASY",
+    "executionTimeLimitPerTestcase": 10000
+  },
+  {
+    "title": "Identifying a Perfect Square",
+    "associatedTopics": [{"shortTopicName" : "MISCELLANEOUS-2"}],
+    "description": "Write a program to Identifying a Perfect Square",
+    "maxScore": 10,
+    "difficultyLevel": "EASY",
+    "executionTimeLimitPerTestcase": 10000
+  },
+  {
+    "title": "Calculate nPr and nCr",
+    "associatedTopics": [{"shortTopicName" : "MISCELLANEOUS-2"}],
+    "description": "Write a program to Calculate nPr and nCr",
+    "maxScore": 10,
+    "difficultyLevel": "EASY",
+    "executionTimeLimitPerTestcase": 10000
+  },
+  {
+    "title": "Windows Shutdown",
+    "associatedTopics": [{"shortTopicName" : "MISCELLANEOUS-2"}],
+    "description": "Write a program to Windows Shutdown",
+    "maxScore": 10,
+    "difficultyLevel": "EASY",
+    "executionTimeLimitPerTestcase": 10000
+  },
+  {
+    "title": "Without Main Function",
+    "associatedTopics": [{"shortTopicName" : "MISCELLANEOUS-2"}],
+    "description": "Write a program to Without Main Function",
+    "maxScore": 10,
+    "difficultyLevel": "EASY",
+    "executionTimeLimitPerTestcase": 10000
+  },
+  {
+    "title": "Menu Driven Program",
+    "associatedTopics": [{"shortTopicName" : "MISCELLANEOUS-2"}],
+    "description": "Write a program to Menu Driven Program",
+    "maxScore": 10,
+    "difficultyLevel": "EASY",
+    "executionTimeLimitPerTestcase": 10000
+  },
+  {
+    "title": "Changing Text Background Color",
+    "associatedTopics": [{"shortTopicName" : "MISCELLANEOUS-2"}],
+    "description": "Write a program to Changing Text Background Color",
+    "maxScore": 10,
+    "difficultyLevel": "EASY",
+    "executionTimeLimitPerTestcase": 10000
+  },
+  {
+    "title": "Current Date and Time",
+    "associatedTopics": [{"shortTopicName" : "MISCELLANEOUS-2"}],
+    "description": "Write a program to Current Date and Time",
+    "maxScore": 10,
+    "difficultyLevel": "EASY",
+    "executionTimeLimitPerTestcase": 10000
+  }
+]
