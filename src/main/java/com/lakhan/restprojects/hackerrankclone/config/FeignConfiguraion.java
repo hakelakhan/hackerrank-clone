@@ -10,9 +10,6 @@ public class FeignConfiguraion {
     public OkHttpClient client() {
         return new OkHttpClient();
     }
-    @Bean
-    AuthInterceptor authFeign() {
-        return new AuthInterceptor();
-    }
+
 }
 

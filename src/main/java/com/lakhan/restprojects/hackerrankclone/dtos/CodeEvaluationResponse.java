@@ -1,33 +1,29 @@
 package com.lakhan.restprojects.hackerrankclone.dtos;
 
-import lombok.Data;
-import lombok.NoArgsConstructor;
+import lombok.*;
+
+import java.util.List;
 
 @Data
+@Builder
 @NoArgsConstructor
-public class HackerEarthCodeEvaluationResponse {
-    private String he_id;
-    private RequestStatus request_status;
-    private Result result;
-    private String context;
-    private String status_update_url;
+@AllArgsConstructor
+public class CodeEvaluationResponse {
+    private String compilationErrorMessage;
+
+    @Singular
+    private List<TestcaseResult> testcaseResults;
 
     @Data
     @NoArgsConstructor
-    private class RequestStatus {
-        private String message;
-        private String code;
-    }
-    @Data
-    @NoArgsConstructor
-    private class Result {
-//        private RunStatus run_status;
-        private String compile_status;
-    }
-
-    @Data
-    @NoArgsConstructor
-    private class RunStatus {
-        private String status;
+    @Builder
+    @AllArgsConstructor
+    public static class TestcaseResult {
+        private Integer id;
+        private String input;
+        private String output;
+        private String memory;
+        private String cpuTime;
+        private Boolean testcasePassed;
     }
 }

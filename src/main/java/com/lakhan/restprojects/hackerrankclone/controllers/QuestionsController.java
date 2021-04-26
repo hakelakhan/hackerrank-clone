@@ -17,6 +17,12 @@ public class QuestionsController {
 
     private final CodingQuestionService codingQuestionService;
 
+    @PostMapping("coding-question/add-all")
+    public ResponseEntity<String> addCodingQuestions(@Valid @RequestBody List<CodingQuestion> questions) {
+        codingQuestionService.addAll(questions);
+        return ResponseEntity.ok().body("{ \"message\" : \"Questions saved \"}");
+    }
+
     @PostMapping("coding-question/add")
     public ResponseEntity<String> addCodingQuestion(@Valid @RequestBody CodingQuestion question) {
         codingQuestionService.add(question);
@@ -29,11 +35,11 @@ public class QuestionsController {
     }
 
     @GetMapping("coding-question/get/{id}")
-    ResponseEntity<String> getCodingQuestionById(@PathVariable long id) {
+    CodingQuestion getCodingQuestionById(@PathVariable int id) {
         Optional<CodingQuestion> question = codingQuestionService.find(id);
         if(question.isPresent())
-            return ResponseEntity.ok().body(question.get().toString());
+            return question.get();
         else
-            return ResponseEntity.notFound().build();
+            return null;
     }
 }

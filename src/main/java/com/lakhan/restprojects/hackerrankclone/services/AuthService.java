@@ -50,7 +50,7 @@ public class AuthService {
         user.setFullName(registerRequest.getFullName());
         user.setEmail(registerRequest.getEmail());
         user.setPassword(passwordEncoder.encode(registerRequest.getPassword()));
-        //Temp Testing
+        //Todo Temp Testing
         user.setRegistrationStatus(RegistrationStatus.ACTIVATED);
         usersDao.save(user);
 
@@ -72,14 +72,15 @@ public class AuthService {
         return verificationToken.getToken();
     }
 
-    public AuthenticationResponse login(LoginRequest user) {
-        Authentication authenticate = authenticationManager.authenticate(new UsernamePasswordAuthenticationToken(user.getEmail(), user.getPassword()));
+    public AuthenticationResponse login(LoginRequest loginRequest) {
+        Authentication authenticate = authenticationManager.authenticate(new UsernamePasswordAuthenticationToken(loginRequest.getEmail(), loginRequest.getPassword()));
         SecurityContextHolder.getContext().setAuthentication(authenticate);
         String jwtToken = jwtProvider.generateToken(authenticate);
+        Optional<User> user = usersDao.findByEmail(loginRequest.getEmail());
         return AuthenticationResponse.builder()
                 .authenticationToken(jwtToken)
-                .expiresAt(Instant.now().plusSeconds(10))
-                .username(user.getEmail())
+                .expiresAt(Instant.now().plusSeconds(jwtProvider.getJwtTokenExpirationSecs()))      //TODO remove this field if not needed
+                .username(user.get().getFullName())
                 .build();
     }
 

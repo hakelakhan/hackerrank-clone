@@ -3,16 +3,18 @@ package com.lakhan.restprojects.hackerrankclone.models;
 import com.lakhan.restprojects.hackerrankclone.enums.DifficultyLevel;
 import lombok.Data;
 
-import javax.persistence.*;
+import javax.persistence.GeneratedValue;
+import javax.persistence.Id;
+import javax.persistence.ManyToOne;
+import javax.persistence.MappedSuperclass;
 import javax.validation.constraints.NotNull;
-import java.util.List;
 
 @Data
 @MappedSuperclass
 public class Question {
     @Id
     @GeneratedValue
-    private int questionId;
+    private long questionId;
 
     @NotNull
     private DifficultyLevel difficultyLevel;
@@ -22,8 +24,4 @@ public class Question {
 
     @NotNull
     private long maxScore;
-
-    @ManyToMany
-    List<Topic> associatedTopics;
-
 }

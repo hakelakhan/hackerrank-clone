@@ -2,12 +2,18 @@ package com.lakhan.restprojects.hackerrankclone.services;
 
 import com.lakhan.restprojects.hackerrankclone.daos.CodingQuestionRepository;
 import com.lakhan.restprojects.hackerrankclone.models.CodingQuestion;
+import lombok.AllArgsConstructor;
+import org.springframework.stereotype.Service;
 
 import java.util.List;
 import java.util.Optional;
 
+@Service
+@AllArgsConstructor
 public class CodingQuestionService {
-    CodingQuestionRepository codingQuestionRepository;
+
+    private final CodingQuestionRepository codingQuestionRepository;
+
     public void add(CodingQuestion question) {
         codingQuestionRepository.save(question);
     }
@@ -16,7 +22,11 @@ public class CodingQuestionService {
         return codingQuestionRepository.findAll();
     }
 
-    public Optional<CodingQuestion> find(long id) {
-        return codingQuestionRepository.findById(id);
+    public Optional<CodingQuestion> find(int id) {
+        return codingQuestionRepository.findById((long)id);
+    }
+
+    public void addAll(List<CodingQuestion> questions) {
+        codingQuestionRepository.saveAll(questions);
     }
 }

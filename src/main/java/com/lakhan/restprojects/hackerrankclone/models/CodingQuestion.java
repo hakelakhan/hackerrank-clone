@@ -2,6 +2,7 @@ package com.lakhan.restprojects.hackerrankclone.models;
 
 import lombok.Data;
 
+import javax.persistence.CascadeType;
 import javax.persistence.Entity;
 import javax.persistence.OneToMany;
 import javax.validation.constraints.NotEmpty;
@@ -14,15 +15,15 @@ import java.util.List;
 public class CodingQuestion extends Question{
 
     @NotEmpty
-    @Size(max = 100, min = 10, message = "Title of question should not exceed more than 100 characters and should be at least 20 characters")
+    @Size(max = 100, min = 5, message = "Title of question should not exceed more than 100 characters and should be at least 5 characters")
     private String title;
 
-    @NotEmpty @Size(min = 100, max = 5000, message = "Description of question should not exceed more than 5000 characters and should be at least 100 characters")
+    @NotEmpty @Size(min = 15, max = 5000, message = "Description of question should not exceed more than 5000 characters and should be at least 15 characters")
     private String description;
 
     @NotNull
     private long executionTimeLimitPerTestcase;
 
-    @OneToMany
-    List<Testcase> testcases;
+    @OneToMany(cascade = CascadeType.ALL)
+    private List<Testcase> testcases;
 }

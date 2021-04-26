@@ -64,4 +64,8 @@ public class JwtProvider {
     private PublicKey getPublickey() {
         return keyStoreManager.getPublicKey("codie");
     }
+
+    public long getJwtTokenExpirationSecs() {
+        return jwtTokenExpirationSecs;
+    }
 }
