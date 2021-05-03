@@ -6,9 +6,7 @@ import com.lakhan.restprojects.hackerrankclone.dtos.AuthenticationResponse;
 import com.lakhan.restprojects.hackerrankclone.dtos.LoginRequest;
 import com.lakhan.restprojects.hackerrankclone.dtos.RegisterRequest;
 import com.lakhan.restprojects.hackerrankclone.enums.RegistrationStatus;
-import com.lakhan.restprojects.hackerrankclone.models.NotificationEmail;
-import com.lakhan.restprojects.hackerrankclone.models.User;
-import com.lakhan.restprojects.hackerrankclone.models.VerificationToken;
+import com.lakhan.restprojects.hackerrankclone.models.*;
 import com.lakhan.restprojects.hackerrankclone.security.JwtProvider;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.security.authentication.AuthenticationManager;
@@ -76,12 +74,17 @@ public class AuthService {
         Authentication authenticate = authenticationManager.authenticate(new UsernamePasswordAuthenticationToken(loginRequest.getEmail(), loginRequest.getPassword()));
         SecurityContextHolder.getContext().setAuthentication(authenticate);
         String jwtToken = jwtProvider.generateToken(authenticate);
-        Optional<User> user = usersDao.findByEmail(loginRequest.getEmail());
+        User user = findByEmail(loginRequest.getEmail());
         return AuthenticationResponse.builder()
                 .authenticationToken(jwtToken)
                 .expiresAt(Instant.now().plusSeconds(jwtProvider.getJwtTokenExpirationSecs()))      //TODO remove this field if not needed
-                .username(user.get().getFullName())
+                .username(user.getFullName())
+                .score(user.getCurrentScore())
                 .build();
+    }
+
+    public User findByEmail(String email) {
+        return usersDao.findByEmail(email).orElseThrow( () -> new RuntimeException("User details not available"));
     }
 
     public void verifyAccount(String token) {
@@ -94,4 +97,5 @@ public class AuthService {
         user.setRegistrationStatus(RegistrationStatus.ACTIVATED);
         usersDao.save(user);
     }
+
 }

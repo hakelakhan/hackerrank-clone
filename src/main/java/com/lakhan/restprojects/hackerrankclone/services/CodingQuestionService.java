@@ -29,4 +29,8 @@ public class CodingQuestionService {
     public void addAll(List<CodingQuestion> questions) {
         codingQuestionRepository.saveAll(questions);
     }
+
+    public void updateCodignQuestionForCurrentSubmission(CodingQuestion codingQuestion) {
+        codingQuestionRepository.save(codingQuestion);
+    }
 }

@@ -1,22 +1,20 @@
 package com.lakhan.restprojects.hackerrankclone.services;
 
-import com.fasterxml.jackson.core.JsonProcessingException;
-import com.fasterxml.jackson.databind.ObjectMapper;
 import com.lakhan.restprojects.hackerrankclone.dtos.CodeEvaluationRequest;
 import com.lakhan.restprojects.hackerrankclone.dtos.CodeEvaluationResponse;
 import com.lakhan.restprojects.hackerrankclone.dtos.JdoodleCodeEvaluationRequest;
 import com.lakhan.restprojects.hackerrankclone.dtos.JdoodleCodeEvaluationResponse;
+import com.lakhan.restprojects.hackerrankclone.models.CodeSubmissionDetails;
 import com.lakhan.restprojects.hackerrankclone.models.CodingQuestion;
 import com.lakhan.restprojects.hackerrankclone.models.Testcase;
+import com.lakhan.restprojects.hackerrankclone.models.User;
 import lombok.SneakyThrows;
-import lombok.extern.slf4j.Slf4j;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
 import java.util.Optional;
 
 @Service
-@Slf4j
 public class ProblemSubmissionHandlingService {
 
     @Autowired
@@ -25,9 +23,17 @@ public class ProblemSubmissionHandlingService {
     @Autowired
     CodingQuestionService codingQuestionService;
 
+    @Autowired
+    UserDetailsServiceImpl userDetailsService;
+
+    @Autowired
+    CodeSubmissionDetailsService codeSubmissionDetailsService;
+
+    @Autowired
+    AuthService authService;
     @SneakyThrows
     public CodeEvaluationResponse submitCodeForEvaluation(CodeEvaluationRequest requestDto) {
-        ObjectMapper objectMapper = new ObjectMapper();
+        System.out.println(requestDto);
         JdoodleCodeEvaluationRequest.JdoodleCodeEvaluationRequestBuilder requestBuilder = JdoodleCodeEvaluationRequest.builder()
                 .clientId("1c9b608a6226ca009f3f4fd84d84c59e")
                 .clientSecret("6bf57de9e7b7bef12eb8fe4ffbcf17a5c04012d0c64ed6bd10ddc1cff9879e20")
@@ -40,26 +46,42 @@ public class ProblemSubmissionHandlingService {
 
         if(question.isPresent()) {
             CodingQuestion codingQuestion = question.get();
-            log.info(codingQuestion.toString());
+            int totalTestcases = codingQuestion.getTestcases().size();
+            int failedTestcases = 0;
             for (int counter = 0; counter < codingQuestion.getTestcases().size(); counter++) {
                 Testcase testcase = codingQuestion.getTestcases().get(counter);
-                String requestString = "";
-                try {
-                    requestString = objectMapper.writeValueAsString(requestBuilder.stdin(testcase.getProvidedInput()).build());
-                } catch (JsonProcessingException e) {
-                    e.printStackTrace();        //TODO remove this part
-                }
-                JdoodleCodeEvaluationResponse response = jdoodleApiService.submitCodeForEvaluation(requestString);
+                JdoodleCodeEvaluationResponse response = jdoodleApiService.submitCodeForEvaluation(requestBuilder.stdin(testcase.getProvidedInput()).build());
                 if(isCompilationFailure(response)) {
-                    responseBuilder.compilationErrorMessage(response.getOutput());
+                    responseBuilder.errorMessage(response.getOutput());
                     return responseBuilder.build();
                 }
-                responseBuilder.testcaseResult(buildTestcaseResult(response, testcase).id(counter).build());
+                CodeEvaluationResponse.TestcaseResult result = buildTestcaseResult(response, testcase).id(counter).build();
+                if(!result.getTestcasePassed()) {
+                    failedTestcases++;
+                }
+                responseBuilder.testcaseResult(result);
             }
+                int passedTestcases = totalTestcases - failedTestcases;
+                double score = (passedTestcases / (double) totalTestcases) * codingQuestion.getMaxScore();
+                responseBuilder.passedTestcases(passedTestcases)
+                        .score(score)
+                        .allTestcasesPassed(passedTestcases == totalTestcases)
+                        .maxScore(codingQuestion.getMaxScore())
+                        .totalTestcases(totalTestcases);
+                if(passedTestcases > 0) {
+                    User user = userDetailsService.getActiveUser().get();
+                    CodeSubmissionDetails details = new CodeSubmissionDetails();
+                    details.setCodingQuestion(codingQuestion);
+                    details.setScore(score);
+                    details.setSolvedBy(user);
+                    details.setCodeSubmitted(requestDto.getSource());
+                    details.setCodeSubmittedLanguage(requestDto.getLang());
+                    codeSubmissionDetailsService.add(details);
+                    userDetailsService.updateUserRecordForCurrentCodeSubmission(user, details);
+                    codingQuestion.getSubmissionDetails().add(details);
+                    codingQuestionService.updateCodignQuestionForCurrentSubmission(codingQuestion);
+                }
             return responseBuilder.build();
-        }
-        else {
-            log.error("Could not find question with id " + requestDto.getQuestionId());
         }
         return null;
     }
@@ -69,6 +91,7 @@ public class ProblemSubmissionHandlingService {
                 .memory(response.getMemory())
                 .cpuTime(response.getCpuTime())
                 .output(response.getOutput())
+                .expectedOutput(testcase.getExpectedOutput())
                 .input(testcase.getProvidedInput())
                 .testcasePassed(testcase.passes(response.getOutput()));
     }

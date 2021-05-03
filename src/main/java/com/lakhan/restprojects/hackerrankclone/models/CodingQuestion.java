@@ -2,13 +2,12 @@ package com.lakhan.restprojects.hackerrankclone.models;
 
 import lombok.Data;
 
-import javax.persistence.CascadeType;
-import javax.persistence.Entity;
-import javax.persistence.OneToMany;
+import javax.persistence.*;
 import javax.validation.constraints.NotEmpty;
 import javax.validation.constraints.NotNull;
 import javax.validation.constraints.Size;
 import java.util.List;
+import java.util.Set;
 
 @Entity
 @Data
@@ -24,6 +23,9 @@ public class CodingQuestion extends Question{
     @NotNull
     private long executionTimeLimitPerTestcase;
 
-    @OneToMany(cascade = CascadeType.ALL)
+    @OneToMany(cascade = CascadeType.ALL, fetch = FetchType.LAZY)
     private List<Testcase> testcases;
+
+    @OneToMany(mappedBy = "codingQuestion")
+    private Set<CodeSubmissionDetails> submissionDetails;
 }

@@ -37,7 +37,7 @@ class AuthController {
     public ResponseEntity<String> verifyAccount (@PathVariable("verificationToken") String verificationToken) {
         log.info("Validating token {} ", verificationToken);
         authService.verifyAccount(verificationToken);
-        return new ResponseEntity<String>("Account Activated Successfully", OK);
+        return new ResponseEntity<>("Account Activated Successfully", OK);
     }
 
     @PostMapping("logout")

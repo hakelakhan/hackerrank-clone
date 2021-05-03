@@ -2,11 +2,14 @@ package com.lakhan.restprojects.hackerrankclone.services;
 
 import com.lakhan.restprojects.hackerrankclone.daos.UsersRepository;
 import com.lakhan.restprojects.hackerrankclone.enums.RegistrationStatus;
+import com.lakhan.restprojects.hackerrankclone.models.CodeSubmissionDetails;
 import com.lakhan.restprojects.hackerrankclone.models.User;
 import lombok.extern.slf4j.Slf4j;
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.security.core.Authentication;
 import org.springframework.security.core.GrantedAuthority;
 import org.springframework.security.core.authority.SimpleGrantedAuthority;
+import org.springframework.security.core.context.SecurityContextHolder;
 import org.springframework.security.core.userdetails.UserDetails;
 import org.springframework.security.core.userdetails.UserDetailsService;
 import org.springframework.security.core.userdetails.UsernameNotFoundException;
@@ -34,5 +37,26 @@ public class UserDetailsServiceImpl implements UserDetailsService {
 
     private Collection<? extends GrantedAuthority> getAuthorities(String role) {
         return Collections.singletonList(new SimpleGrantedAuthority(role));
+    }
+    public void updateUserRecordForCurrentCodeSubmission(User user, CodeSubmissionDetails details) {
+        CodeSubmissionDetails previousBestSubmissionForThisQuestion = CodeSubmissionDetails.getPreviousBestSubmission(user, details.getCodingQuestion());
+        if(previousBestSubmissionForThisQuestion == null)
+            user.setCurrentScore(user.getCurrentScore() + details.getScore());
+        else {
+            if(details.getScore() > previousBestSubmissionForThisQuestion.getScore()) {
+                //Use this score
+                user.setCurrentScore(user.getCurrentScore() + details.getScore() - previousBestSubmissionForThisQuestion.getScore());
+            }
+        }
+        user.getSubmissionDetails().add(details);
+        usersDao.saveAndFlush(user);
+//        usersDao.save(user);
+    }
+
+
+    public Optional<User> getActiveUser() {
+        Authentication authentication = SecurityContextHolder.getContext().getAuthentication();
+        org.springframework.security.core.userdetails.User principal = (org.springframework.security.core.userdetails.User)authentication.getPrincipal();
+        return usersDao.findByEmail(principal.getUsername());
     }
 }

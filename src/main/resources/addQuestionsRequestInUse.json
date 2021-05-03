@@ -1,21 +1,21 @@
 [
   {
     "title": "Hello World",
-    "associatedTopics": [{"shortTopicName" : "Basic Programming"}],
     "description": "Write a program to print Hello World",
     "maxScore": 10,
     "difficultyLevel": "EASY",
     "executionTimeLimitPerTestcase": 10000,
-    "testCases" : [{"providedInput" : "", "expectedOutput" : "Hello World"}]
+    "testcases" : [{"providedInput" : "", "expectedOutput" : "Hello World"}],
+    "submissionDetails": []
   },
   {
     "title": "Take Input from User",
-    "associatedTopics": [{"shortTopicName" : "Basic Programming"}],
     "description": "Write a program to Take Input from User",
     "maxScore": 10,
     "difficultyLevel": "EASY",
     "executionTimeLimitPerTestcase": 10000,
-    "testCases" : [{"providedInput" : "5", "expectedOutput" : "5"}, {"providedInput" : "20", "expectedOutput" : "20"}, {"providedInput" : "15", "expectedOutput" : "15"}]
+    "testcases" : [{"providedInput" : "5", "expectedOutput" : "5"}, {"providedInput" : "20", "expectedOutput" : "20"}, {"providedInput" : "15", "expectedOutput" : "15"}],
+    "submissionDetails": []
   },
   {
     "title": "Find ASCII Value of Character",

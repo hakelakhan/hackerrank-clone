@@ -21,8 +21,10 @@ public class ProblemSubmissionController {
 
     @PostMapping("/problem")
     public ResponseEntity<CodeEvaluationResponse> submitCode(@RequestBody CodeEvaluationRequest requestDto) {
+        log.info("Handling Code submitted for question id " + requestDto.getQuestionId());
         CodeEvaluationResponse response = problemSubmissionHandlingService.submitCodeForEvaluation(requestDto);
         if(response == null) {
+            log.error("Could not find question with id " + requestDto.getQuestionId());
             return ResponseEntity.notFound().build();
         }
         return ResponseEntity.ok().body(response);

@@ -9,10 +9,17 @@ import java.util.List;
 @NoArgsConstructor
 @AllArgsConstructor
 public class CodeEvaluationResponse {
-    private String compilationErrorMessage;
+    private String errorMessage;
+    private String warningMessage;
+    private boolean allTestcasesPassed;
+    private int passedTestcases;
+    private int totalTestcases;
+    private double score;
+    private double maxScore;
 
     @Singular
     private List<TestcaseResult> testcaseResults;
+
 
     @Data
     @NoArgsConstructor
@@ -22,6 +29,7 @@ public class CodeEvaluationResponse {
         private Integer id;
         private String input;
         private String output;
+        private String expectedOutput;
         private String memory;
         private String cpuTime;
         private Boolean testcasePassed;

@@ -113,6 +113,7 @@
 	</dependencyManagement>
 
 	<build>
+		<finalName>codie</finalName>
 		<plugins>
 			<plugin>
 				<groupId>org.springframework.boot</groupId>
