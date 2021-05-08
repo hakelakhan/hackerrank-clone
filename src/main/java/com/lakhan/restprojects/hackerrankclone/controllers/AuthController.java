@@ -47,11 +47,6 @@ class AuthController {
         return new ResponseEntity<>("Account Activated Successfully", OK);
     }
 
-    @PostMapping("logout")
-    public ResponseEntity<String> logout() {
-        return new ResponseEntity<>("Logout Successful", OK);
-    }
-
     @PostMapping("/refresh")
     public AuthenticationResponse refreshToken(RefreshTokenRequest refreshTokenRequest) {
         return authService.refreshToken(refreshTokenRequest);

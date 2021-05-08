@@ -77,9 +77,10 @@ public class ProblemSubmissionHandlingService {
                     details.setCodeSubmitted(requestDto.getSource());
                     details.setCodeSubmittedLanguage(requestDto.getLang());
                     codeSubmissionDetailsService.add(details);
-                    userDetailsService.updateUserRecordForCurrentCodeSubmission(user, details);
+                    user = userDetailsService.updateUserRecordForCurrentCodeSubmission(user, details);
                     codingQuestion.getSubmissionDetails().add(details);
                     codingQuestionService.updateCodignQuestionForCurrentSubmission(codingQuestion);
+                    responseBuilder.updatedUserScore(user.getCurrentScore());
                 }
             return responseBuilder.build();
         }
@@ -94,6 +95,7 @@ public class ProblemSubmissionHandlingService {
                 .expectedOutput(testcase.getExpectedOutput())
                 .input(testcase.getProvidedInput())
                 .testcasePassed(testcase.passes(response.getOutput()));
+
     }
 
     private boolean isCompilationFailure(JdoodleCodeEvaluationResponse response) {

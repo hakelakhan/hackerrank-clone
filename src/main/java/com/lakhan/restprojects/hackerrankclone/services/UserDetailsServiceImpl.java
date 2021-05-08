@@ -38,7 +38,7 @@ public class UserDetailsServiceImpl implements UserDetailsService {
     private Collection<? extends GrantedAuthority> getAuthorities(String role) {
         return Collections.singletonList(new SimpleGrantedAuthority(role));
     }
-    public void updateUserRecordForCurrentCodeSubmission(User user, CodeSubmissionDetails details) {
+    public User updateUserRecordForCurrentCodeSubmission(User user, CodeSubmissionDetails details) {
         CodeSubmissionDetails previousBestSubmissionForThisQuestion = CodeSubmissionDetails.getPreviousBestSubmission(user, details.getCodingQuestion());
         if(previousBestSubmissionForThisQuestion == null)
             user.setCurrentScore(user.getCurrentScore() + details.getScore());
@@ -50,6 +50,7 @@ public class UserDetailsServiceImpl implements UserDetailsService {
         }
         user.getSubmissionDetails().add(details);
         usersDao.saveAndFlush(user);
+        return user;
 //        usersDao.save(user);
     }
 

@@ -16,6 +16,7 @@ public class CodeEvaluationResponse {
     private int totalTestcases;
     private double score;
     private double maxScore;
+    private double updatedUserScore;
 
     @Singular
     private List<TestcaseResult> testcaseResults;
