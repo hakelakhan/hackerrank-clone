@@ -2,6 +2,7 @@ package com.lakhan.restprojects.hackerrankclone.controllers;
 
 import com.lakhan.restprojects.hackerrankclone.dtos.AuthenticationResponse;
 import com.lakhan.restprojects.hackerrankclone.dtos.LoginRequest;
+import com.lakhan.restprojects.hackerrankclone.dtos.RefreshTokenRequest;
 import com.lakhan.restprojects.hackerrankclone.dtos.RegisterRequest;
 import com.lakhan.restprojects.hackerrankclone.services.AuthService;
 import lombok.extern.slf4j.Slf4j;
@@ -33,6 +34,12 @@ class AuthController {
         return authService.login(loginRequest);
     }
 
+    @PostMapping("/logout")
+    public ResponseEntity<String> logout (@Valid @RequestBody RefreshTokenRequest refreshTokenRequest) {
+        authService.logout(refreshTokenRequest);
+        return ResponseEntity.ok().body("{\"message\" : \"Refresh Token Deleted\"}");
+    }
+
     @GetMapping("/account-verification/{verificationToken}")
     public ResponseEntity<String> verifyAccount (@PathVariable("verificationToken") String verificationToken) {
         log.info("Validating token {} ", verificationToken);
@@ -43,5 +50,10 @@ class AuthController {
     @PostMapping("logout")
     public ResponseEntity<String> logout() {
         return new ResponseEntity<>("Logout Successful", OK);
+    }
+
+    @PostMapping("/refresh")
+    public AuthenticationResponse refreshToken(RefreshTokenRequest refreshTokenRequest) {
+        return authService.refreshToken(refreshTokenRequest);
     }
 }

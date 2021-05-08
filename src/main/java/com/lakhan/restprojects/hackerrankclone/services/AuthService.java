@@ -4,6 +4,7 @@ import com.lakhan.restprojects.hackerrankclone.daos.UsersRepository;
 import com.lakhan.restprojects.hackerrankclone.daos.VerificationTokenRepository;
 import com.lakhan.restprojects.hackerrankclone.dtos.AuthenticationResponse;
 import com.lakhan.restprojects.hackerrankclone.dtos.LoginRequest;
+import com.lakhan.restprojects.hackerrankclone.dtos.RefreshTokenRequest;
 import com.lakhan.restprojects.hackerrankclone.dtos.RegisterRequest;
 import com.lakhan.restprojects.hackerrankclone.enums.RegistrationStatus;
 import com.lakhan.restprojects.hackerrankclone.models.*;
@@ -43,6 +44,12 @@ public class AuthService {
     @Autowired
     private AuthenticationManager authenticationManager;
 
+    @Autowired
+    private RefreshTokenService refreshTokenService;
+
+    @Autowired
+    private UserDetailsServiceImpl userDetailsService;
+
     public void register(@Valid RegisterRequest registerRequest) {
         User user = new User();
         user.setFullName(registerRequest.getFullName());
@@ -74,11 +81,13 @@ public class AuthService {
         Authentication authenticate = authenticationManager.authenticate(new UsernamePasswordAuthenticationToken(loginRequest.getEmail(), loginRequest.getPassword()));
         SecurityContextHolder.getContext().setAuthentication(authenticate);
         String jwtToken = jwtProvider.generateToken(authenticate);
+        RefreshToken refreshToken = refreshTokenService.generateToken();
         User user = findByEmail(loginRequest.getEmail());
         return AuthenticationResponse.builder()
                 .authenticationToken(jwtToken)
                 .expiresAt(Instant.now().plusSeconds(jwtProvider.getJwtTokenExpirationSecs()))      //TODO remove this field if not needed
                 .username(user.getFullName())
+                .refreshToken(refreshToken.getToken())
                 .score(user.getCurrentScore())
                 .build();
     }
@@ -98,4 +107,20 @@ public class AuthService {
         usersDao.save(user);
     }
 
+    public AuthenticationResponse refreshToken(RefreshTokenRequest refreshTokenRequest) {
+        refreshTokenService.validateToken(refreshTokenRequest.getRefreshToken());
+        String newJwtToken = jwtProvider.generateTokenWithEmail(refreshTokenRequest.getEmail());
+        User user = findByEmail(refreshTokenRequest.getEmail());
+        return AuthenticationResponse.builder()
+                .refreshToken(refreshTokenRequest.getRefreshToken())
+                .score(user.getCurrentScore())
+                .expiresAt(Instant.now().plusSeconds(jwtProvider.getJwtTokenExpirationSecs()))
+                .username(user.getFullName())
+                .authenticationToken(newJwtToken)
+                .build();
+    }
+
+    public void logout(RefreshTokenRequest refreshTokenRequest) {
+        refreshTokenService.deleteToken(refreshTokenRequest.getRefreshToken());
+    }
 }
