@@ -15,7 +15,7 @@ public class CodingQuestionService {
     private final CodingQuestionRepository codingQuestionRepository;
 
     public void add(CodingQuestion question) {
-        codingQuestionRepository.save(question);
+        codingQuestionRepository.saveAndFlush(question);
     }
 
     public List<CodingQuestion> findAll() {
@@ -31,6 +31,6 @@ public class CodingQuestionService {
     }
 
     public void updateCodignQuestionForCurrentSubmission(CodingQuestion codingQuestion) {
-        codingQuestionRepository.save(codingQuestion);
+        codingQuestionRepository.saveAndFlush(codingQuestion);
     }
 }

@@ -18,7 +18,7 @@ public class RefreshTokenService {
         RefreshToken refreshToken = new RefreshToken();
         refreshToken.setToken(UUID.randomUUID().toString());
         refreshToken.setCreatedDate(Instant.now());
-        return refreshTokenRepository.save(refreshToken);
+        return refreshTokenRepository.saveAndFlush(refreshToken);
     }
     public void validateToken(String token) {
         refreshTokenRepository.findByToken(token).orElseThrow(() -> new CodieException("Invalid Refresh Token"));

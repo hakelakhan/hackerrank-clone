@@ -3,17 +3,14 @@ package com.lakhan.restprojects.hackerrankclone.models;
 import com.lakhan.restprojects.hackerrankclone.enums.DifficultyLevel;
 import lombok.Data;
 
-import javax.persistence.GeneratedValue;
-import javax.persistence.Id;
-import javax.persistence.ManyToOne;
-import javax.persistence.MappedSuperclass;
+import javax.persistence.*;
 import javax.validation.constraints.NotNull;
 
 @Data
 @MappedSuperclass
 public class Question {
     @Id
-    @GeneratedValue
+    @GeneratedValue(strategy = GenerationType.IDENTITY)
     private long questionId;
 
     @NotNull

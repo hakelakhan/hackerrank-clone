@@ -57,7 +57,7 @@ public class AuthService {
         user.setPassword(passwordEncoder.encode(registerRequest.getPassword()));
         //Todo Temp Testing
         user.setRegistrationStatus(RegistrationStatus.ACTIVATED);
-        usersDao.save(user);
+        usersDao.saveAndFlush(user);
 
         String verificationToken = generateVerificationToken(user);
         emailService.sendMail(
@@ -73,7 +73,7 @@ public class AuthService {
     private String generateVerificationToken(User user) {
         VerificationToken verificationToken = VerificationToken.createVerificationTokenForUser(user);
 
-        verificationTokenRepository.save(verificationToken);
+        verificationTokenRepository.saveAndFlush(verificationToken);
         return verificationToken.getToken();
     }
 
@@ -89,6 +89,7 @@ public class AuthService {
                 .username(user.getFullName())
                 .refreshToken(refreshToken.getToken())
                 .score(user.getCurrentScore())
+                .email(loginRequest.getEmail())
                 .build();
     }
 
@@ -104,7 +105,7 @@ public class AuthService {
     private void fetchUserAndEnable(VerificationToken verificationToken) {
         User user = verificationToken.getUser();
         user.setRegistrationStatus(RegistrationStatus.ACTIVATED);
-        usersDao.save(user);
+        usersDao.saveAndFlush(user);
     }
 
     public AuthenticationResponse refreshToken(RefreshTokenRequest refreshTokenRequest) {

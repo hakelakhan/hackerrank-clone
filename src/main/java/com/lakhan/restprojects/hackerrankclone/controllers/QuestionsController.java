@@ -45,7 +45,7 @@ public class QuestionsController {
     private CodingQuestionDetailsDto mapToDto(CodingQuestion question) {
         if(question == null ) return  null;
         User user = userDetailsService.getActiveUser().get();
-        CodeSubmissionDetails previousBestSubmission = CodeSubmissionDetails.getPreviousBestSubmission(user, question);
+        CodeSubmissionDetails previousBestSubmission = CodeSubmissionDetails.getPreviousBestSubmission(user, question, null);
         double score = previousBestSubmission == null ? 0 : previousBestSubmission.getScore();
         return CodingQuestionDetailsDto.builder()
                 .title(question.getTitle())

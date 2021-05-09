@@ -76,8 +76,8 @@ public class ProblemSubmissionHandlingService {
                     details.setSolvedBy(user);
                     details.setCodeSubmitted(requestDto.getSource());
                     details.setCodeSubmittedLanguage(requestDto.getLang());
-                    codeSubmissionDetailsService.add(details);
                     user = userDetailsService.updateUserRecordForCurrentCodeSubmission(user, details);
+                    codeSubmissionDetailsService.add(details);
                     codingQuestion.getSubmissionDetails().add(details);
                     codingQuestionService.updateCodignQuestionForCurrentSubmission(codingQuestion);
                     responseBuilder.updatedUserScore(user.getCurrentScore());

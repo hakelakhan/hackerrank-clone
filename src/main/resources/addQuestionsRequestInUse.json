@@ -23,55 +23,69 @@
     "description": "Write a program to Find ASCII Value of Character",
     "maxScore": 10,
     "difficultyLevel": "EASY",
-    "executionTimeLimitPerTestcase": 10000
+    "executionTimeLimitPerTestcase": 10000,
+    "testcases" : [{"providedInput" : "A", "expectedOutput" : "65"}, {"providedInput" : "a", "expectedOutput" : "97"}, {"providedInput" : "0", "expectedOutput" : "48"}, {"providedInput" : "+", "expectedOutput" : "43"}],
+    "submissionDetails": []
   },
   {
     "title": "Using gets() function",
     "associatedTopics": [{"shortTopicName" : "Basic Programming"}],
-    "description": "Write a program to Using gets() function",
+    "description": "Write a program to use gets() function",
     "maxScore": 10,
     "difficultyLevel": "EASY",
-    "executionTimeLimitPerTestcase": 10000
+    "executionTimeLimitPerTestcase": 10000,
+    "testcases" : [{"providedInput" : "India", "expectedOutput" : "India"}, {"providedInput" : "codie.in", "expectedOutput" : "codie.in"}, {"providedInput" : "+?__ILoveProgramming", "expectedOutput" : "+?__ILoveProgramming"}],
+    "submissionDetails": []
   },
   {
     "title": "If-Else",
     "associatedTopics": [{"shortTopicName" : "Basic Programming"}],
-    "description": "Write a program to If-Else",
+    "description": "Write a program to accept age from user and print whether person is eligible for voting or not. Print 'Eligible for voting' if user enters age greater than or equal to 18. If user enters age less than 18, print message 'Not eligible for voting'",
     "maxScore": 10,
     "difficultyLevel": "EASY",
-    "executionTimeLimitPerTestcase": 10000
+    "executionTimeLimitPerTestcase": 10000,
+    "testcases" : [{"providedInput" : "18", "expectedOutput" : "Eligible for voting"}, {"providedInput" : "20", "expectedOutput" : "Eligible for voting"}, {"providedInput" : "15", "expectedOutput" : "Not eligible for voting"}],
+    "submissionDetails": []
   },
   {
     "title": "Switch Case",
     "associatedTopics": [{"shortTopicName" : "Basic Programming"}],
-    "description": "Write a program to Switch Case",
-    "maxScore": 10,
-    "difficultyLevel": "EASY",
-    "executionTimeLimitPerTestcase": 10000
+    "description": "Write a program to accept character from user. Print 'vowel' if character entered by user is vowel (i.e. one of A, E, I, O, U, a, e, i, o, u). Print 'consonant' if character is consonant. Print 'digit' if character is digit. Print 'symbol' if character is not alphanumeric",
+    "maxScore": 30,
+    "difficultyLevel": "MEDIUM",
+    "executionTimeLimitPerTestcase": 10000,
+    "testcases" : [{"providedInput" : "C", "expectedOutput" : "consonant"}, {"providedInput" : "m", "expectedOutput" : "consonant"}, {"providedInput" : "A", "expectedOutput" : "vowel"}, {"providedInput" : "6", "expectedOutput" : "digit"}, {"providedInput" : "a", "expectedOutput" : "vowel"}, {"providedInput" : "%", "expectedOutput" : "symbol"}],
+    "submissionDetails": []
   },
   {
     "title": "Checking for Vowel",
     "associatedTopics": [{"shortTopicName" : "Basic Programming"}],
-    "description": "Write a program to Checking for Vowel",
+    "description": "Write a program to check if character in input is Vowel or not. If Character is vowel, print 'vowel'. If character is not vowel, print 'Not vowel'",
     "maxScore": 10,
     "difficultyLevel": "EASY",
-    "executionTimeLimitPerTestcase": 10000
+    "executionTimeLimitPerTestcase": 10000,
+    "testcases" : [{"providedInput" : "C", "expectedOutput" : "Not vowel"}, {"providedInput" : "e", "expectedOutput" : "vowel"}, {"providedInput" : "A", "expectedOutput" : "vowel"} ],
+    "submissionDetails": []
   },
   {
     "title": "Reversing Case of Character",
     "associatedTopics": [{"shortTopicName" : "Basic Programming"}],
-    "description": "Write a program to Reversing Case of Character",
+    "description": "Write a program to reverse Case of Character. e.g. if user enters character 'A', output should be 'a' and vice versa",
     "maxScore": 10,
     "difficultyLevel": "EASY",
-    "executionTimeLimitPerTestcase": 10000
+    "executionTimeLimitPerTestcase": 10000,
+    "testcases" : [{"providedInput" : "N", "expectedOutput" : "n"}, {"providedInput" : "e", "expectedOutput" : "E"}],
+    "submissionDetails": []
   },
   {
     "title": "Swapping Two Numbers",
     "associatedTopics": [{"shortTopicName" : "Basic Programming"}],
-    "description": "Write a program to Swapping Two Numbers",
+    "description": "Write a program to accept two integers from user. Store them in 2 variables. Swap contents of 2 variables",
     "maxScore": 10,
     "difficultyLevel": "EASY",
-    "executionTimeLimitPerTestcase": 10000
+    "executionTimeLimitPerTestcase": 10000,
+    "testcases" : [{"providedInput" : "100 250", "expectedOutput" : "250 100"}, {"providedInput" : "67 91", "expectedOutput" : "91 67"}],
+    "submissionDetails": []
   },
   {
     "title": "Largest and Smallest using Global Declaration",

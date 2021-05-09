@@ -11,6 +11,6 @@ public class CodeSubmissionDetailsService {
     private CodeSubmissionDetailsRepository submissionDao;
 
     public void add(CodeSubmissionDetails details) {
-        submissionDao.save(details);
+        submissionDao.saveAndFlush(details);
     }
 }

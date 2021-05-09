@@ -6,6 +6,7 @@ import lombok.Setter;
 
 import javax.persistence.*;
 import java.util.Comparator;
+import java.util.Set;
 
 @Getter
 @Setter
@@ -22,13 +23,15 @@ public class CodeSubmissionDetails {
     @ManyToOne(cascade = CascadeType.ALL, fetch = FetchType.LAZY)
     CodingQuestion codingQuestion;
 
+    @Column(length = 10000)
     String codeSubmitted;
 
     String codeSubmittedLanguage;
 
     Double score;
 
-    public static CodeSubmissionDetails getPreviousBestSubmission(User user, CodingQuestion question) {
-        return user.getSubmissionDetails().stream().filter(detail -> detail.getCodingQuestion().equals(question)).max(Comparator.comparingDouble(CodeSubmissionDetails::getScore)).orElse(null);
+    public static CodeSubmissionDetails getPreviousBestSubmission(User user, CodingQuestion question, CodeSubmissionDetails currentSubmission) {
+        Set<CodeSubmissionDetails> submissionDetails = user.getSubmissionDetails();
+        return user.getSubmissionDetails().stream().filter(detail -> detail.getCodingQuestion().equals(question) && !detail.equals(currentSubmission)).max(Comparator.comparingDouble(CodeSubmissionDetails::getScore)).orElse(null);
     }
 }

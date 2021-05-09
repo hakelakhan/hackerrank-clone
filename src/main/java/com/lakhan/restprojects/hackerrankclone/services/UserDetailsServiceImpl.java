@@ -39,7 +39,7 @@ public class UserDetailsServiceImpl implements UserDetailsService {
         return Collections.singletonList(new SimpleGrantedAuthority(role));
     }
     public User updateUserRecordForCurrentCodeSubmission(User user, CodeSubmissionDetails details) {
-        CodeSubmissionDetails previousBestSubmissionForThisQuestion = CodeSubmissionDetails.getPreviousBestSubmission(user, details.getCodingQuestion());
+        CodeSubmissionDetails previousBestSubmissionForThisQuestion = CodeSubmissionDetails.getPreviousBestSubmission(user, details.getCodingQuestion(), details);
         if(previousBestSubmissionForThisQuestion == null)
             user.setCurrentScore(user.getCurrentScore() + details.getScore());
         else {
@@ -49,9 +49,7 @@ public class UserDetailsServiceImpl implements UserDetailsService {
             }
         }
         user.getSubmissionDetails().add(details);
-        usersDao.saveAndFlush(user);
         return user;
-//        usersDao.save(user);
     }
 
 
