@@ -33,7 +33,7 @@ public class ProfileController {
     @PostMapping("/update")
     public ResponseEntity<String> updateProfile(@RequestBody UpdableProfileInfo profileInfo) {
         profileService.saveProfile(profileInfo);
-        return new ResponseEntity<>("{\"message\" : \"Profile was saved\"}", OK);
+        return new ResponseEntity<>("{\"message\" : \"Profile was updated\"}", OK);
     }
 
     @SneakyThrows
