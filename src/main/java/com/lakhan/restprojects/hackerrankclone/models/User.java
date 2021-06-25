@@ -40,6 +40,22 @@ class User {
     @OneToMany(mappedBy = "solvedBy")
     Set<CodeSubmissionDetails> submissionDetails;
 
+    private String mobile;
+    private String qualification;
+    private double cgpa;
+    private String university;
+    private int passedOutYear;
+    private String profession;
+    private int experinceInYears;
+    private String organization;
+    private String additionalDetails;
+    private String profilePictureFilename;
+
+    private String linkedInProfile;
+    private String facebookProfile;
+    private String githubProfile;
+
+
     public User() {
         registrationStatus = RegistrationStatus.NOT_YET_ACTIVATED;
         createdTime = LocalDateTime.now();

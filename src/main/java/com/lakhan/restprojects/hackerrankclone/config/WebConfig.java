@@ -28,5 +28,8 @@ public class WebConfig implements WebMvcConfigurer {
 
         registry.addResourceHandler("/webjars/**")
                 .addResourceLocations("classpath:/META-INF/resources/webjars/");
+
+        registry.addResourceHandler("/profile-pictures/**")
+                .addResourceLocations("file:C:\\Users\\LENOVO\\IdeaProjects\\hackerrank-clone\\src\\main\\resources\\public\\").setCachePeriod(31556926);
     }
 }

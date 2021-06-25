@@ -1,9 +1,6 @@
 package com.lakhan.restprojects.hackerrankclone.controllers;
 
-import com.lakhan.restprojects.hackerrankclone.dtos.AuthenticationResponse;
-import com.lakhan.restprojects.hackerrankclone.dtos.LoginRequest;
-import com.lakhan.restprojects.hackerrankclone.dtos.RefreshTokenRequest;
-import com.lakhan.restprojects.hackerrankclone.dtos.RegisterRequest;
+import com.lakhan.restprojects.hackerrankclone.dtos.*;
 import com.lakhan.restprojects.hackerrankclone.services.AuthService;
 import lombok.extern.slf4j.Slf4j;
 import org.springframework.beans.factory.annotation.Autowired;
