@@ -27,7 +27,7 @@ class AuthController {
 
     @PostMapping("/login")
     public AuthenticationResponse login(@RequestBody LoginRequest loginRequest) {
-        log.info("Login Request for user " + loginRequest.getEmail());
+        log.info("Login Request for user {} ", loginRequest.getEmail());
         return authService.login(loginRequest);
     }
 
