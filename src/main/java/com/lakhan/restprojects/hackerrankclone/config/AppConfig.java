@@ -13,11 +13,22 @@ public class AppConfig {
     @NotNull
     private String url;
 
+    @NotNull
+    private String uploadLocation;
+
     public String getUrl() {
         return url;
     }
 
     public void setUrl(String url) {
         this.url = url;
+    }
+
+    public String getUploadLocation() {
+        return uploadLocation;
+    }
+
+    public void setUploadLocation(String uploadLocation) {
+        this.uploadLocation = uploadLocation;
     }
 }
