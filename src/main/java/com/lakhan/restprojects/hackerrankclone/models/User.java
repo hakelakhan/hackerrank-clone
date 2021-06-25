@@ -14,8 +14,8 @@ import java.util.Set;
 
 @Data
 @Entity
-public
-class User {
+@Table(name = "codie_users")
+public class User {
     @Id @GeneratedValue
     private long userId;
 

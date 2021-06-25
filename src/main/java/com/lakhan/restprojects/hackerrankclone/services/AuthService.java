@@ -1,5 +1,6 @@
 package com.lakhan.restprojects.hackerrankclone.services;
 
+import com.lakhan.restprojects.hackerrankclone.config.AppConfig;
 import com.lakhan.restprojects.hackerrankclone.daos.UsersRepository;
 import com.lakhan.restprojects.hackerrankclone.daos.VerificationTokenRepository;
 import com.lakhan.restprojects.hackerrankclone.dtos.AuthenticationResponse;
@@ -33,6 +34,9 @@ public class AuthService {
     private PasswordEncoder passwordEncoder;
 
     @Autowired
+    private AppConfig appConfig;
+
+    @Autowired
     private UsersRepository usersDao;
 
     @Autowired
@@ -58,8 +62,6 @@ public class AuthService {
         user.setFullName(registerRequest.getFullName());
         user.setEmail(registerRequest.getEmail());
         user.setPassword(passwordEncoder.encode(registerRequest.getPassword()));
-        //Todo Temp Testing
-        user.setRegistrationStatus(RegistrationStatus.ACTIVATED);
         usersDao.saveAndFlush(user);
 
         String verificationToken = generateVerificationToken(user);
@@ -68,7 +70,7 @@ public class AuthService {
                         .subject("Please Activate your Codie Account")
                         .body("Thank you for signing up to Codie, " +
                                 "please click on the below url to activate your account : " +
-                                "http://localhost:8080/api/auth/account-verification/" + verificationToken)
+                                appConfig.getUrl() + "/api/auth/account-verification/" + verificationToken)
                         .recepient(user.getEmail())
                         .build());
     }
