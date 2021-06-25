@@ -11,7 +11,6 @@ import org.springframework.web.multipart.MultipartFile;
 import org.springframework.web.servlet.support.ServletUriComponentsBuilder;
 
 import java.io.IOException;
-import java.nio.file.Path;
 import java.util.Optional;
 import java.util.UUID;
 
@@ -50,6 +49,13 @@ public class ProfileService {
             profileBuilder.score(user.getCurrentScore());
             profileBuilder.solvedProblems(submissionDetailsService.getSolvedProblemsCount(user));
             profileBuilder.programmingSkills(submissionDetailsService.getProgrammingSkills(user));
+            if(user.getProfilePictureFilename() != null) {
+                profileBuilder.profilePictureUri(
+                        ServletUriComponentsBuilder.fromCurrentContextPath()
+                                .path("/profile-pictures/")
+                                .path(user.getProfilePictureFilename())
+                                .toUriString());
+            }
         });
         return profileBuilder.build();
     }
@@ -81,13 +87,8 @@ public class ProfileService {
             User user = userOptional.get();
             String targetFilename = UUID.randomUUID().toString() + image.getOriginalFilename();
             storageService.store(image, targetFilename);
-            System.out.println(ServletUriComponentsBuilder.fromCurrentContextPath().path("/profile-pictures/").path( targetFilename).toUriString());
-            user.setProfilePictureFilename("tmp");
+            user.setProfilePictureFilename(targetFilename);
             usersDao.save(user);
         }
-    }
-
-    public Path loadProfilePicture(String filename) {
-        return storageService.load(filename);
     }
 }

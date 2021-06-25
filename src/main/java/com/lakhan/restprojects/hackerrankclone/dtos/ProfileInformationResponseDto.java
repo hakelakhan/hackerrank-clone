@@ -16,5 +16,6 @@ public class ProfileInformationResponseDto {
     private int solvedProblems;
     private double score;
     private Badge badge;
+    private String profilePictureUri;
 
 }

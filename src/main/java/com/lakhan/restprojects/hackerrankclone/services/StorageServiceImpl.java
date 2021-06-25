@@ -20,7 +20,6 @@ public class StorageServiceImpl implements StorageService{
     @Override
     @PostConstruct
     public void init() throws IOException{
-        uploadDirLocation = getClass().getResource(".").getPath().substring(1) + File.separator + "static" + File.separator + uploadDirLocation;
         File uploadDir = Paths.get(uploadDirLocation).toFile();
         if(!uploadDir.exists())
             uploadDir.mkdirs();
@@ -28,7 +27,6 @@ public class StorageServiceImpl implements StorageService{
 
     @Override
     public void store(MultipartFile file, String targetFilename) throws IOException {
-        System.out.println("Storing file to " + uploadDirLocation + File.separator+ targetFilename);
         file.transferTo(new File(uploadDirLocation + File.separator+ targetFilename));
     }
 

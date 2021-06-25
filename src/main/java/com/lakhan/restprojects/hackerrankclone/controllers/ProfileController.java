@@ -45,13 +45,6 @@ public class ProfileController {
        return new ResponseEntity<>("{\"message\" : \"Profile picture uploaded\"}", OK);
     }
 
-    @SneakyThrows
-    @PostMapping("get/profile-picture/{filename}")
-    public ResponseEntity<String> loadProfilePicture(@PathVariable("filename") String filename) {
-        profileService.loadProfilePicture(filename);
-        return new ResponseEntity<>("{\"message\" : \"Profile picture uploaded\"}", OK);
-    }
-
     private boolean validate(MultipartFile image) {
         List<String> allowedContentTypes = Arrays.asList("image/jpeg", "image/png");
         return allowedContentTypes.contains(image.getContentType());

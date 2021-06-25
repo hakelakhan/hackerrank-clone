@@ -63,5 +63,4 @@ class User {
         currentScore = 0;
         submissionDetails = new HashSet<>();
     }
-
 }

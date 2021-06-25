@@ -14,7 +14,6 @@ public class UpdableProfileInfo {
     private int experienceInYears;
     private String organization;
     private String additionalDetails;
-    private String profilePicturePath;
     private String linkedInProfile;
     private String facebookProfile;
     private String githubProfile;
