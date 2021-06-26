@@ -70,7 +70,7 @@ public class AuthService {
                         .subject("Please Activate your Codie Account")
                         .body("Thank you for signing up to Codie, " +
                                 "please click on the below url to activate your account : " +
-                                appConfig.getUrl() + "/api/auth/account-verification/" + verificationToken)
+                                appConfig.getUrl() + "api/auth/account-verification/" + verificationToken)
                         .recepient(user.getEmail())
                         .build());
     }
