@@ -9,12 +9,49 @@
     "submissionDetails": []
   },
   {
-    "title": "Take Input from User",
+    "title": "Reading Integer from User",
+    "description": "Write a program to accept integer from User",
+    "maxScore": 10,
+    "difficultyLevel": "EASY",
+    "executionTimeLimitPerTestcase": 10000,
+    "testcases" : [{"providedInput" : "5", "expectedOutput" : "5"}, {"providedInput" : "20", "expectedOutput" : "20"}, {"providedInput" : "15", "expectedOutput" : "15"}],
+    "submissionDetails": []
+  },
+  {
+    "title": "Reading floating point number from User",
+    "description": "Write a program to accept floating point number from User",
+    "maxScore": 10,
+    "difficultyLevel": "EASY",
+    "executionTimeLimitPerTestcase": 10000,
+    "testcases" : [{"providedInput" : "5.135", "expectedOutput" : "5.135"}, {"providedInput" : "123.0", "expectedOutput" : "123.0"}, {"providedInput" : "-1.3478198", "expectedOutput" : "-1.3478198"}],
+    "submissionDetails": []
+  },
+  {
+    "title": "Reading character from User",
+    "description": "Write a program to accept character input from user",
+    "maxScore": 10,
+    "difficultyLevel": "EASY",
+    "executionTimeLimitPerTestcase": 10000,
+    "testcases" : [{"providedInput" : "A", "expectedOutput" : "A"}, {"providedInput" : "i", "expectedOutput" : "i"}, {"providedInput" : "%", "expectedOutput" : "%"}],
+    "submissionDetails": []
+  },
+  {
+    "title": "Reading Integer from User",
     "description": "Write a program to Take Input from User",
     "maxScore": 10,
     "difficultyLevel": "EASY",
     "executionTimeLimitPerTestcase": 10000,
     "testcases" : [{"providedInput" : "5", "expectedOutput" : "5"}, {"providedInput" : "20", "expectedOutput" : "20"}, {"providedInput" : "15", "expectedOutput" : "15"}],
+    "submissionDetails": []
+  },
+  {
+    "title": "Reading string from user",
+    "associatedTopics": [{"shortTopicName" : "Basic Programming"}],
+    "description": "Write a program to accept string using scanf",
+    "maxScore": 10,
+    "difficultyLevel": "EASY",
+    "executionTimeLimitPerTestcase": 10000,
+    "testcases" : [{"providedInput" : "India", "expectedOutput" : "India"}, {"providedInput" : "codie.in", "expectedOutput" : "codie.in"}, {"providedInput" : "+?__ILoveProgramming", "expectedOutput" : "+?__ILoveProgramming"}],
     "submissionDetails": []
   },
   {
@@ -25,16 +62,6 @@
     "difficultyLevel": "EASY",
     "executionTimeLimitPerTestcase": 10000,
     "testcases" : [{"providedInput" : "A", "expectedOutput" : "65"}, {"providedInput" : "a", "expectedOutput" : "97"}, {"providedInput" : "0", "expectedOutput" : "48"}, {"providedInput" : "+", "expectedOutput" : "43"}],
-    "submissionDetails": []
-  },
-  {
-    "title": "Using gets() function",
-    "associatedTopics": [{"shortTopicName" : "Basic Programming"}],
-    "description": "Write a program to use gets() function",
-    "maxScore": 10,
-    "difficultyLevel": "EASY",
-    "executionTimeLimitPerTestcase": 10000,
-    "testcases" : [{"providedInput" : "India", "expectedOutput" : "India"}, {"providedInput" : "codie.in", "expectedOutput" : "codie.in"}, {"providedInput" : "+?__ILoveProgramming", "expectedOutput" : "+?__ILoveProgramming"}],
     "submissionDetails": []
   },
   {
@@ -82,18 +109,19 @@
     "associatedTopics": [{"shortTopicName" : "Basic Programming"}],
     "description": "Write a program to accept two integers from user. Store them in 2 variables. Swap contents of 2 variables",
     "maxScore": 10,
-    "difficultyLevel": "EASY",
+    "difficultyLevel": "MEDIUM",
     "executionTimeLimitPerTestcase": 10000,
     "testcases" : [{"providedInput" : "100 250", "expectedOutput" : "250 100"}, {"providedInput" : "67 91", "expectedOutput" : "91 67"}],
     "submissionDetails": []
   },
   {
-    "title": "Largest and Smallest using Global Declaration",
+    "title": "Arithmetic operations on provided floating point numbers",
     "associatedTopics": [{"shortTopicName" : "Basic Programming"}],
-    "description": "Write a program to Largest and Smallest using Global Declaration",
+    "description": "Write a program to accept 2 floating point numbers from user. Accept symbol from user. User can enter one of symbols like '+' ,'-', '*', '/'. Based on symbol entered by user, perform operation and print result",
     "maxScore": 10,
     "difficultyLevel": "EASY",
-    "executionTimeLimitPerTestcase": 10000
+    "executionTimeLimitPerTestcase": 10000,
+    "testcases" : [{"providedInput" : "100 250 +", "expectedOutput" : "100.00 + 250.00 = 350.00"}, {"providedInput" : "30 15 *", "expectedOutput" : "30.00 * 15.00 = 450.00"}, {"providedInput" : "6.25 0.25 /", "expectedOutput" : "6.25 / 0.25 = 25.00"} ]
   },
   {
     "title": "Basic for Loop",

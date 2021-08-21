@@ -55,6 +55,7 @@ public class QuestionsController {
                 .solved(previousBestSubmission != null)
                 .questionId(question.getQuestionId())
                 .difficultyLevel(question.getDifficultyLevel())
+                .testcases(question.getTestcases())
                 .build();
     }
 
