@@ -7,13 +7,16 @@ import org.springframework.stereotype.Repository;
 
 import java.util.Arrays;
 import java.util.List;
+import java.util.Random;
 
 @Repository
 public interface CodeSubmissionDetailsRepository extends JpaRepository<CodeSubmissionDetails, Long> {
 
 //    @Query("SELECT DISTINCT CODESUBMITTEDLANGUAGE FROM CodeSubmissionDetails WHERE solvedBy.email = ?")
     default List<String> findDistinctBySolvedBy(User user) {
-        return Arrays.asList("C", "C++", "Java", "Python");
+        Random random = new Random();
+        List<String> languages = Arrays.asList("C", "C++", "Java", "Python");
+        return Arrays.asList(languages.get(random.nextInt(languages.size())));
     }
 
     Integer countBySolvedBy(User user);

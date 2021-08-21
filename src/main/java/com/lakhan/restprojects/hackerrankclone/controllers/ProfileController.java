@@ -11,6 +11,7 @@ import org.springframework.web.bind.annotation.*;
 import org.springframework.web.multipart.MultipartFile;
 
 import java.util.Arrays;
+import java.util.Collections;
 import java.util.List;
 
 import static org.springframework.http.HttpStatus.OK;
@@ -28,6 +29,13 @@ public class ProfileController {
         if(email != null)
             return profileService.getProfile(email);
         return profileService.getProfile();
+    }
+
+    @GetMapping("/get-top")
+    public List<ProfileInformationResponseDto> getTopProfiles(@RequestParam(value = "count") int count) {
+        if(count > 0)
+            return profileService.getTopProfiles(count);
+        return Collections.emptyList();
     }
 
     @PostMapping("/update")

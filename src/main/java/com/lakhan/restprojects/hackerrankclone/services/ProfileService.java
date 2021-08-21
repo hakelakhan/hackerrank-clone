@@ -11,8 +11,8 @@ import org.springframework.web.multipart.MultipartFile;
 import org.springframework.web.servlet.support.ServletUriComponentsBuilder;
 
 import java.io.IOException;
-import java.util.Optional;
-import java.util.UUID;
+import java.util.*;
+import java.util.stream.Collectors;
 
 @Service
 @AllArgsConstructor
@@ -90,5 +90,15 @@ public class ProfileService {
             user.setProfilePictureFilename(targetFilename);
             usersDao.save(user);
         }
+    }
+
+    public List<ProfileInformationResponseDto> getTopProfiles(int k) {
+        List<User> usersWithTopScores = usersDao.findAll().stream()
+                .sorted(Comparator.comparingDouble(User::getCurrentScore).reversed())
+                .collect(Collectors.toList());
+        usersWithTopScores = usersWithTopScores.subList(0, Math.min(k, usersWithTopScores.size()));
+        List<ProfileInformationResponseDto> responseDtos = new ArrayList<>();
+        usersWithTopScores.forEach( user -> responseDtos.add(getProfile(user.getEmail())));
+        return responseDtos;
     }
 }
