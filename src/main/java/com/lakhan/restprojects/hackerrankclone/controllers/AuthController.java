@@ -47,7 +47,7 @@ class AuthController {
     @GetMapping("/account-verification/send-verification-email")
     public ResponseEntity<String> sendVerificationEmail(@RequestParam("email") String email) {
         authService.sendVerificationEmail(email);
-        return new ResponseEntity<>("Tried resending verification email", OK);
+        return new ResponseEntity<>("{\"message\" : \"Tried resending verification email\"}", OK);
     }
 
     @PostMapping("/refresh")
