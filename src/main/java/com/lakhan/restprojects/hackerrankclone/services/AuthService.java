@@ -63,8 +63,13 @@ public class AuthService {
         user.setEmail(registerRequest.getEmail());
         user.setPassword(passwordEncoder.encode(registerRequest.getPassword()));
         usersDao.saveAndFlush(user);
+        sendVerificationEmail(user.getEmail());
 
-        String verificationToken = generateVerificationToken(user);
+    }
+
+    public void sendVerificationEmail(String email) {
+        User user = findByEmail(email);
+        String verificationToken = getVerificationToken(user);
         emailService.sendMail(
                 NotificationEmail.builder()
                         .subject("Please Activate your Codie Account")
@@ -73,13 +78,17 @@ public class AuthService {
                                 appConfig.getUrl() + "api/auth/account-verification/" + verificationToken)
                         .recepient(user.getEmail())
                         .build());
+
     }
 
-    private String generateVerificationToken(User user) {
-        VerificationToken verificationToken = VerificationToken.createVerificationTokenForUser(user);
 
-        verificationTokenRepository.saveAndFlush(verificationToken);
-        return verificationToken.getToken();
+    private String getVerificationToken(User user) {
+        return verificationTokenRepository.findByUser(user)
+            .orElseGet(() -> {
+                VerificationToken verificationToken = VerificationToken.createVerificationTokenForUser(user);
+                verificationTokenRepository.saveAndFlush(verificationToken);
+                return verificationToken;
+            }).getToken();
     }
 
     public AuthenticationResponse login(LoginRequest loginRequest) {
