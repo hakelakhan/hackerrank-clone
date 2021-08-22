@@ -16,6 +16,9 @@ public class AppConfig {
     @NotNull
     private String uploadLocation;
 
+    @NotNull
+    private String senderEmail;
+
     public String getUrl() {
         return url;
     }
@@ -30,5 +33,13 @@ public class AppConfig {
 
     public void setUploadLocation(String uploadLocation) {
         this.uploadLocation = uploadLocation;
+    }
+
+    public String getSenderEmail() {
+        return senderEmail;
+    }
+
+    public void setSenderEmail(String senderEmail) {
+        this.senderEmail = senderEmail;
     }
 }
